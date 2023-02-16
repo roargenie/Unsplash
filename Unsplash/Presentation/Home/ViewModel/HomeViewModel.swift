@@ -1,17 +1,17 @@
 //
-//  SearchViewModel.swift
+//  HomeViewModel.swift
 //  Unsplash
 //
-//  Created by 이명진 on 2023/02/15.
+//  Created by 이명진 on 2023/02/16.
 //
 
 import Foundation
 import RxCocoa
 import RxSwift
 
-final class SearchViewModel: ViewModelType {
+final class HomeViewModel: ViewModelType {
     
-    private weak var coordinator: SearchCoordinator?
+    private weak var coordinator: HomeCoordinator?
     
     struct Input {
         
@@ -22,7 +22,7 @@ final class SearchViewModel: ViewModelType {
     }
     var disposeBag = DisposeBag()
     
-    init(coordinator: SearchCoordinator?) {
+    init(coordinator: HomeCoordinator?) {
         self.coordinator = coordinator
     }
     
@@ -31,3 +31,14 @@ final class SearchViewModel: ViewModelType {
         return Output()
     }
 }
+
+
+
+
+
+
+
+
+
+
+

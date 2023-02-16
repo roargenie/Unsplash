@@ -1,5 +1,5 @@
 //
-//  SearchViewController.swift
+//  HomeViewController.swift
 //  Unsplash
 //
 //  Created by 이명진 on 2023/02/16.
@@ -10,12 +10,12 @@ import RxCocoa
 import RxSwift
 import SnapKit
 
-class SearchViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
-    private let viewModel: SearchViewModel
+    private let viewModel: HomeViewModel
     private var disposeBag = DisposeBag()
     
-    init(viewModel: SearchViewModel) {
+    init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -26,7 +26,6 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .yellow
+        self.view.backgroundColor = .systemOrange
     }
-    
 }
