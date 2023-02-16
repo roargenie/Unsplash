@@ -23,6 +23,13 @@
 		F683EF86299E439C00C91974 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F683EF85299E439C00C91974 /* RxSwift */; };
 		F683EF89299E43AC00C91974 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F683EF88299E43AC00C91974 /* SnapKit */; };
 		F683EF8C299E43D800C91974 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = F683EF8B299E43D800C91974 /* Alamofire */; };
+		F683EF90299E55D400C91974 /* UnsplashRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF8F299E55D400C91974 /* UnsplashRouter.swift */; };
+		F683EF92299E55EB00C91974 /* RandomPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF91299E55EB00C91974 /* RandomPhotoModel.swift */; };
+		F683EF94299E563A00C91974 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF93299E563A00C91974 /* APIManager.swift */; };
+		F683EF98299E579200C91974 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF97299E579200C91974 /* EndPoint.swift */; };
+		F683EF9B299E5CF000C91974 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = F683EF9A299E5CF000C91974 /* Then */; };
+		F683EF9D299E61B400C91974 /* RandomPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF9C299E61B400C91974 /* RandomPhotoView.swift */; };
+		F683EF9F299E61C400C91974 /* PhotoCollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF9E299E61C400C91974 /* PhotoCollectionsView.swift */; };
 		F6DFAC59299BE35B00C420A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DFAC58299BE35B00C420A0 /* AppDelegate.swift */; };
 		F6DFAC5B299BE35B00C420A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DFAC5A299BE35B00C420A0 /* SceneDelegate.swift */; };
 		F6DFAC62299BE35C00C420A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6DFAC61299BE35C00C420A0 /* Assets.xcassets */; };
@@ -50,6 +57,12 @@
 		F683EF79299E388800C91974 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		F683EF7C299E3FE600C91974 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		F683EF7E299E426600C91974 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		F683EF8F299E55D400C91974 /* UnsplashRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashRouter.swift; sourceTree = "<group>"; };
+		F683EF91299E55EB00C91974 /* RandomPhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPhotoModel.swift; sourceTree = "<group>"; };
+		F683EF93299E563A00C91974 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		F683EF97299E579200C91974 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		F683EF9C299E61B400C91974 /* RandomPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPhotoView.swift; sourceTree = "<group>"; };
+		F683EF9E299E61C400C91974 /* PhotoCollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionsView.swift; sourceTree = "<group>"; };
 		F6DFAC55299BE35B00C420A0 /* Unsplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6DFAC58299BE35B00C420A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6DFAC5A299BE35B00C420A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +86,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F683EF8C299E43D800C91974 /* Alamofire in Frameworks */,
+				F683EF9B299E5CF000C91974 /* Then in Frameworks */,
 				F683EF86299E439C00C91974 /* RxSwift in Frameworks */,
 				F683EF89299E43AC00C91974 /* SnapKit in Frameworks */,
 				F683EF84299E439C00C91974 /* RxRelay in Frameworks */,
@@ -105,6 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				F683EF62299E26FC00C91974 /* HomeViewController.swift */,
+				F683EF9C299E61B400C91974 /* RandomPhotoView.swift */,
+				F683EF9E299E61C400C91974 /* PhotoCollectionsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,6 +190,22 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		F683EF8D299E558800C91974 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F683EF91299E55EB00C91974 /* RandomPhotoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F683EF8E299E55C300C91974 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F683EF8F299E55D400C91974 /* UnsplashRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		F6DFAC4C299BE35B00C420A0 = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +269,10 @@
 		F6DFAC71299BE3B700C420A0 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				F683EF8E299E55C300C91974 /* Router */,
+				F683EF8D299E558800C91974 /* Model */,
+				F683EF93299E563A00C91974 /* APIManager.swift */,
+				F683EF97299E579200C91974 /* EndPoint.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -385,6 +421,7 @@
 				F683EF85299E439C00C91974 /* RxSwift */,
 				F683EF88299E43AC00C91974 /* SnapKit */,
 				F683EF8B299E43D800C91974 /* Alamofire */,
+				F683EF9A299E5CF000C91974 /* Then */,
 			);
 			productName = Unsplash;
 			productReference = F6DFAC55299BE35B00C420A0 /* Unsplash.app */;
@@ -418,6 +455,7 @@
 				F683EF80299E439C00C91974 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				F683EF87299E43AC00C91974 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				F683EF8A299E43D800C91974 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				F683EF99299E5CF000C91974 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = F6DFAC56299BE35B00C420A0 /* Products */;
 			projectDirPath = "";
@@ -445,6 +483,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F683EF98299E579200C91974 /* EndPoint.swift in Sources */,
 				F6DFAC92299BE95F00C420A0 /* UsersPhotoViewController.swift in Sources */,
 				F6DFAC82299BE8EF00C420A0 /* Matrix.swift in Sources */,
 				F683EF72299E31D200C91974 /* CoordinatorDelegate.swift in Sources */,
@@ -452,19 +491,24 @@
 				F683EF65299E270000C91974 /* HomeViewModel.swift in Sources */,
 				F6DFAC8A299BE93F00C420A0 /* UserInfoViewModel.swift in Sources */,
 				F683EF77299E36B800C91974 /* TabBarCoordinator.swift in Sources */,
+				F683EF9D299E61B400C91974 /* RandomPhotoView.swift in Sources */,
 				F683EF70299E31C600C91974 /* Coordinator.swift in Sources */,
 				F683EF63299E26FC00C91974 /* HomeViewController.swift in Sources */,
+				F683EF90299E55D400C91974 /* UnsplashRouter.swift in Sources */,
 				F6DFAC94299BE96600C420A0 /* UsersPhotoView.swift in Sources */,
 				F6DFAC84299BE92700C420A0 /* SearchViewModel.swift in Sources */,
 				F6DFAC8C299BE94600C420A0 /* UserInfoViewController.swift in Sources */,
+				F683EF92299E55EB00C91974 /* RandomPhotoModel.swift in Sources */,
 				F683EF7F299E426600C91974 /* SearchViewController.swift in Sources */,
 				F6DFAC59299BE35B00C420A0 /* AppDelegate.swift in Sources */,
 				F6DFAC6D299BE3A000C420A0 /* APIKey.swift in Sources */,
 				F683EF7A299E388800C91974 /* HomeCoordinator.swift in Sources */,
 				F6DFAC5B299BE35B00C420A0 /* SceneDelegate.swift in Sources */,
+				F683EF9F299E61C400C91974 /* PhotoCollectionsView.swift in Sources */,
 				F683EF69299E302300C91974 /* TabBarPageCase.swift in Sources */,
 				F6DFAC8E299BE94C00C420A0 /* UserInfoView.swift in Sources */,
 				F6DFAC90299BE95500C420A0 /* UsersPhotoViewModel.swift in Sources */,
+				F683EF94299E563A00C91974 /* APIManager.swift in Sources */,
 				F683EF67299E2F4900C91974 /* CoordinatorStyleCase.swift in Sources */,
 				F683EF74299E31D900C91974 /* ViewModelType.swift in Sources */,
 			);
@@ -700,6 +744,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		F683EF99299E5CF000C91974 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -727,6 +779,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F683EF8A299E43D800C91974 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		F683EF9A299E5CF000C91974 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F683EF99299E5CF000C91974 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

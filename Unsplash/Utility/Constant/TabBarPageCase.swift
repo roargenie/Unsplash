@@ -39,7 +39,4 @@ enum TabBarPageCase: String, CaseIterable {
         }
     }
     
-//    func tabIconName() -> String {
-//        return self.rawValue
-//    }
 }
