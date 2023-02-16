@@ -30,6 +30,10 @@
 		F683EF9B299E5CF000C91974 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = F683EF9A299E5CF000C91974 /* Then */; };
 		F683EF9D299E61B400C91974 /* RandomPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF9C299E61B400C91974 /* RandomPhotoView.swift */; };
 		F683EF9F299E61C400C91974 /* PhotoCollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF9E299E61C400C91974 /* PhotoCollectionsView.swift */; };
+		F683EFA1299E785B00C91974 /* CustomLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EFA0299E785B00C91974 /* CustomLayoutDelegate.swift */; };
+		F683EFA3299E792100C91974 /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EFA2299E792100C91974 /* CustomLayout.swift */; };
+		F683EFA6299E7E0600C91974 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EFA5299E7E0600C91974 /* MockData.swift */; };
+		F683EFAA299E7E6B00C91974 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EFA9299E7E6A00C91974 /* HomeCollectionViewCell.swift */; };
 		F6DFAC59299BE35B00C420A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DFAC58299BE35B00C420A0 /* AppDelegate.swift */; };
 		F6DFAC5B299BE35B00C420A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DFAC5A299BE35B00C420A0 /* SceneDelegate.swift */; };
 		F6DFAC62299BE35C00C420A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6DFAC61299BE35C00C420A0 /* Assets.xcassets */; };
@@ -63,6 +67,10 @@
 		F683EF97299E579200C91974 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		F683EF9C299E61B400C91974 /* RandomPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomPhotoView.swift; sourceTree = "<group>"; };
 		F683EF9E299E61C400C91974 /* PhotoCollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionsView.swift; sourceTree = "<group>"; };
+		F683EFA0299E785B00C91974 /* CustomLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayoutDelegate.swift; sourceTree = "<group>"; };
+		F683EFA2299E792100C91974 /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
+		F683EFA5299E7E0600C91974 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		F683EFA9299E7E6A00C91974 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		F6DFAC55299BE35B00C420A0 /* Unsplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6DFAC58299BE35B00C420A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6DFAC5A299BE35B00C420A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +126,7 @@
 		F683EF5F299E26EA00C91974 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F683EFA8299E7E3E00C91974 /* Cell */,
 				F683EF62299E26FC00C91974 /* HomeViewController.swift */,
 				F683EF9C299E61B400C91974 /* RandomPhotoView.swift */,
 				F683EF9E299E61C400C91974 /* PhotoCollectionsView.swift */,
@@ -146,6 +155,7 @@
 			children = (
 				F683EF6F299E31C600C91974 /* Coordinator.swift */,
 				F683EF71299E31D200C91974 /* CoordinatorDelegate.swift */,
+				F683EFA0299E785B00C91974 /* CustomLayoutDelegate.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -206,6 +216,29 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		F683EFA4299E7DFA00C91974 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F683EFA5299E7E0600C91974 /* MockData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F683EFA7299E7E3500C91974 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		F683EFA8299E7E3E00C91974 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F683EFA9299E7E6A00C91974 /* HomeCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		F6DFAC4C299BE35B00C420A0 = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +263,7 @@
 				F6DFAC7C299BE4C800C420A0 /* Utility */,
 				F6DFAC70299BE3B600C420A0 /* Presentation */,
 				F6DFAC6E299BE3B300C420A0 /* Resources */,
+				F683EFA4299E7DFA00C91974 /* Data */,
 				F6DFAC61299BE35C00C420A0 /* Assets.xcassets */,
 				F6DFAC63299BE35C00C420A0 /* LaunchScreen.storyboard */,
 				F6DFAC66299BE35C00C420A0 /* Info.plist */,
@@ -315,6 +349,7 @@
 		F6DFAC76299BE47600C420A0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F683EFA7299E7E3500C91974 /* Cell */,
 				F683EF7E299E426600C91974 /* SearchViewController.swift */,
 			);
 			path = View;
@@ -395,6 +430,7 @@
 		F6DFAC7F299BE53A00C420A0 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				F683EFA2299E792100C91974 /* CustomLayout.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -489,7 +525,10 @@
 				F683EF72299E31D200C91974 /* CoordinatorDelegate.swift in Sources */,
 				F683EF7D299E3FE600C91974 /* SearchCoordinator.swift in Sources */,
 				F683EF65299E270000C91974 /* HomeViewModel.swift in Sources */,
+				F683EFA3299E792100C91974 /* CustomLayout.swift in Sources */,
+				F683EFAA299E7E6B00C91974 /* HomeCollectionViewCell.swift in Sources */,
 				F6DFAC8A299BE93F00C420A0 /* UserInfoViewModel.swift in Sources */,
+				F683EFA6299E7E0600C91974 /* MockData.swift in Sources */,
 				F683EF77299E36B800C91974 /* TabBarCoordinator.swift in Sources */,
 				F683EF9D299E61B400C91974 /* RandomPhotoView.swift in Sources */,
 				F683EF70299E31C600C91974 /* Coordinator.swift in Sources */,
@@ -510,6 +549,7 @@
 				F6DFAC90299BE95500C420A0 /* UsersPhotoViewModel.swift in Sources */,
 				F683EF94299E563A00C91974 /* APIManager.swift in Sources */,
 				F683EF67299E2F4900C91974 /* CoordinatorStyleCase.swift in Sources */,
+				F683EFA1299E785B00C91974 /* CustomLayoutDelegate.swift in Sources */,
 				F683EF74299E31D900C91974 /* ViewModelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

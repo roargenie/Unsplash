@@ -1,0 +1,82 @@
+//
+//  CustomLayout.swift
+//  Unsplash
+//
+//  Created by 이명진 on 2023/02/16.
+//
+
+import UIKit
+
+final class CustomLayout: UICollectionViewLayout {
+    
+    weak var delegate: CustomLayoutDelegate?
+    
+    fileprivate var numberOfColumns: Int = 2
+    fileprivate var cellPadding: CGFloat = 6.0
+    fileprivate var cache: [UICollectionViewLayoutAttributes] = []
+    fileprivate var contentHeight: CGFloat = 0.0
+    
+    fileprivate var contentWidth: CGFloat {
+        guard let collectionView = collectionView else { return 0.0 }
+        let insets = collectionView.contentInset
+        return collectionView.bounds.width - (insets.left + insets.right)
+    }
+    
+    override var collectionViewContentSize: CGSize {
+        return CGSize(width: contentWidth, height: contentHeight)
+    }
+    
+    override func prepare() {
+        super.prepare()
+        guard let collectionView = collectionView else { return }
+        cache.removeAll()
+        
+        // xOffset 계산
+        let columnWidth: CGFloat = contentWidth / CGFloat(numberOfColumns)
+        var xOffset: [CGFloat] = []
+        for column in 0..<numberOfColumns {
+            let offset = CGFloat(column) * columnWidth
+            xOffset += [offset]
+        }
+        
+        // yOffset 계산
+        var column = 0
+        var yOffset = [CGFloat](repeating: 0, count: numberOfColumns)
+        for item in 0..<collectionView.numberOfItems(inSection: 0) {
+            let indexPath = IndexPath(item: item, section: 0)
+            
+            let imageHeight = delegate?.collectionView(
+                collectionView,
+                heightForImageAtIndexPath: indexPath) ?? 0
+            let height = cellPadding * 2 + imageHeight
+            let frame = CGRect(
+                x: xOffset[column],
+                y: yOffset[column],
+                width: columnWidth,
+                height: height)
+            let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
+            
+            // cache 저장
+            let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+            attributes.frame = insetFrame
+            cache.append(attributes)
+            
+            // 새로 계산된 항목의 프레임을 설명하도록 확장
+            contentHeight = max(contentHeight, frame.maxY)
+            yOffset[column] = yOffset[column] + height
+            
+            // 다음 항목이 다음 열에 배치되도록 설정
+            column = column < (numberOfColumns - 1) ? (column + 1) : 0
+        }
+    }
+    
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        return cache.filter { rect.intersects($0.frame) }
+    }
+    
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        return cache[indexPath.item]
+    }
+    
+    
+}
