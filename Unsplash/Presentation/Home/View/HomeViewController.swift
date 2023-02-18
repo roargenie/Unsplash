@@ -59,6 +59,9 @@ final class HomeViewController: UIViewController {
     
     //MARK: - Properties
     
+    private lazy var input = HomeViewModel.Input(
+        refreshButtonTap: randomPhotoView.refreshButton.rx.tap.asSignal())
+    private lazy var output = viewModel.transform(input: input)
     private let viewModel: HomeViewModel
     private var disposeBag = DisposeBag()
     
@@ -76,6 +79,8 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.view.backgroundColor = .systemOrange
+        print(#function)
+        viewModel.requestRandomPhoto()
         configureUI()
         setConstraints()
         bind()
@@ -133,7 +138,6 @@ final class HomeViewController: UIViewController {
     
     private func bind() {
         
-        
         scrollView.rx.didScroll
             .withUnretained(self)
             .map { vc, _ in
@@ -168,6 +172,21 @@ final class HomeViewController: UIViewController {
                 vc.scrollView.setContentOffset(CGPoint(x: vc.scrollView.frame.width, y: 0), animated: true)
             }
             .disposed(by: disposeBag)
+        
+        viewModel.randomPhotoList
+            .withUnretained(self)
+            .bind { vc, value in
+                vc.randomPhotoView.data = value
+            }
+            .disposed(by: disposeBag)
+            
+        input.refreshButtonTap
+            .withUnretained(self)
+            .emit { vc, _ in
+                vc.viewModel.requestRandomPhoto()
+            }
+            .disposed(by: disposeBag)
+        
         
     }
     

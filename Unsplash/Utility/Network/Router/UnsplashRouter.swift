@@ -23,7 +23,7 @@ extension UnsplashRouter: URLRequestConvertible {
     
     var path: String {
         switch self {
-        case .randomPhoto: return ""
+        case .randomPhoto: return "photos"
         case .photoCollection: return ""
         case .searchPhoto: return ""
         case .searchUser: return ""
@@ -31,7 +31,7 @@ extension UnsplashRouter: URLRequestConvertible {
     }
     
     var headers: [String: String] {
-        return ["": ""]
+        return ["Authorization": APIKey.authorization]
     }
     
     var method: HTTPMethod {
@@ -44,12 +44,14 @@ extension UnsplashRouter: URLRequestConvertible {
     var parameters: Parameters {
         switch self {
         case .randomPhoto:
-            return ["": ""]
-        case .photoCollection:
-            return ["": ""]
-        case .searchPhoto:
-            return ["": ""]
-        case .searchUser:
+            return ["count": "30"]
+//        case .photoCollection:
+//            return ["": ""]
+//        case .searchPhoto:
+//            return ["": ""]
+//        case .searchUser:
+//            return ["": ""]
+        default:
             return ["": ""]
         }
     }
@@ -68,10 +70,12 @@ extension UnsplashRouter: URLRequestConvertible {
         request.method = method
         request.headers = HTTPHeaders(headers)
         
-//        switch self {
-//        default:
-//            return request
-//        }
+        switch self {
+        case .randomPhoto:
+            request = try URLEncoding().encode(request, with: parameters)
+        default:
+            return request
+        }
         
         return request
     }
