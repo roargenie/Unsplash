@@ -78,7 +78,6 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.view.backgroundColor = .systemOrange
         print(#function)
         viewModel.requestRandomPhoto()
         configureUI()
@@ -187,6 +186,22 @@ final class HomeViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
+        output.randomPhotoList
+            .drive(randomPhotoView.collectionView.rx.items) { [weak self] cv, index, item in
+                guard let self = self else { return UICollectionViewCell()}
+                let cell = cv.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.id, for: IndexPath(item: index, section: 0)) as! HomeCollectionViewCell
+                DispatchQueue.global().async {
+                    let url = URL(string: item.urls.regular)!
+                    let data = try? Data(contentsOf: url)
+                    DispatchQueue.main.async {
+                        if let image = data {
+                            cell.imageView.image = UIImage(data: image)
+                        }
+                    }
+                }
+                return cell
+            }
+            .disposed(by: disposeBag)
         
     }
     

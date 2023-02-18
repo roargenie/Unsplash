@@ -24,26 +24,10 @@ final class RandomPhotoView: UIView {
     
     //MARK: - Properties
     
-//    private lazy var input = HomeViewModel.Input(refreshButtonTap: refreshButton.rx.tap.asSignal())
-//    private lazy var output = viewModel.transform(input: input)
-//    private let viewModel = HomeViewModel(coordinator: <#HomeCoordinator?#>)
-//    private let diposeBag = DisposeBag()
-    var data: [RandomPhoto] = [] {
-        didSet {
-            collectionView.reloadData()
-        }
-    }
-//    var data: [MockData] = []
-    
-//    init(viewModel: HomeViewModel, frame: CGRect) {
-//        self.viewModel = viewModel
-////        super.init()
-//        super.init(frame: frame)
-//    }
+    var data: [RandomPhoto] = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupData()
         configureUI()
         setConstraints()
     }
@@ -56,13 +40,10 @@ final class RandomPhotoView: UIView {
         let collectionViewLayout = CustomLayout()
         collectionViewLayout.delegate = self
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
-//        collectionView.layer.borderWidth = 1
         collectionView.backgroundColor = .systemBackground
         collectionView.contentInset = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         self.addSubview(collectionView)
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
         collectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.id)
         self.addSubview(refreshButton)
     }
@@ -77,51 +58,12 @@ final class RandomPhotoView: UIView {
         }
     }
     
-    private func setupData() {
-//        data = MockData.getMock()
-    }
-    
-    private func bind() {
-        
-    }
-    
-//    private func imageDownload(item: RandomPhoto) {
-//        DispatchQueue.global().async {
-//            let url = URL(string: item.urls.regular)!
-//            let data = try? Data(contentsOf: url)
-//        }
-//    }
-    
 }
 
 extension RandomPhotoView: CustomLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath) -> CGFloat {
-        let data = data
-//        data[indexPath.item].contentHeightSize
-        return CGFloat(data[indexPath.item].height / 20)
+        let height = CGFloat(data[indexPath.item].height)
+        return height > 3500 ? height / 25 : height / 15
     }
 }
 
-extension RandomPhotoView: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.id, for: indexPath) as? HomeCollectionViewCell else { return UICollectionViewCell() }
-//        cell.myModel = data[indexPath.item]
-        let data = data
-        DispatchQueue.global().async {
-            let url = URL(string: data[indexPath.item].urls.regular)!
-            let data = try? Data(contentsOf: url)
-            DispatchQueue.main.async {
-                if let image = data {
-                    cell.imageView.image = UIImage(data: image)
-                }
-            }
-        }
-        return cell
-    }
-    
-}

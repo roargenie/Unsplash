@@ -23,7 +23,7 @@ extension UnsplashRouter: URLRequestConvertible {
     
     var path: String {
         switch self {
-        case .randomPhoto: return "photos"
+        case .randomPhoto: return "photos/random"
         case .photoCollection: return ""
         case .searchPhoto: return ""
         case .searchUser: return ""

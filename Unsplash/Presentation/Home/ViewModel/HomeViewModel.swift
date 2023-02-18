@@ -20,7 +20,7 @@ final class HomeViewModel: ViewModelType {
     }
     
     struct Output {
-        let randomPhotoList: BehaviorRelay<[RandomPhoto]>
+        let randomPhotoList: Driver<[RandomPhoto]>
     }
     
     var disposeBag = DisposeBag()
@@ -39,7 +39,7 @@ final class HomeViewModel: ViewModelType {
             .disposed(by: disposeBag)
         
         
-        return Output(randomPhotoList: randomPhotoList)
+        return Output(randomPhotoList: randomPhotoList.asDriver())
     }
     
     func requestRandomPhoto() {
@@ -51,17 +51,12 @@ final class HomeViewModel: ViewModelType {
             case .success(let value):
                 guard let value = value else { return }
                 self.randomPhotoList.accept(value)
-                print("🟢🟢🟢🟢🟢", value)
+//                print("🟢🟢🟢🟢🟢", value)
+                dump(value, name: "🟢🟢🟢🟢🟢")
             case .failure(let error):
                 print(error)
             }
         }
-//        let url = "https://api.unsplash.com/photos/random?count=30"
-//        let header: HTTPHeaders = ["Authorization": APIKey.authorization]
-//        AF.request(url, method: .get, headers: header).responseDecodable(of: RandomPhoto.self) { response in
-//            guard let status = response.response?.statusCode else { return }
-//            print(response.result, status)
-//        }
     }
 }
 
