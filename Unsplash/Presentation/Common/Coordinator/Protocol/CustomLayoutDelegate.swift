@@ -8,5 +8,7 @@
 import UIKit
 
 protocol CustomLayoutDelegate: AnyObject {
-    func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath) -> CGFloat
+    func collectionView(
+        _ collectionView: UICollectionView,
+        heightForImageAtIndexPath indexPath: IndexPath) -> CGFloat
 }

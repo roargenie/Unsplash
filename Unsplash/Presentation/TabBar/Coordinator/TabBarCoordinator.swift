@@ -13,7 +13,7 @@ final class TabBarCoordinator: Coordinator {
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     var tabBarController: UITabBarController
-    var type: CoordinatorStyleCase = .tap
+    var type: CoordinatorStyleCase = .tabBar
     
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController

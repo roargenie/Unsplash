@@ -8,6 +8,6 @@
 import Foundation
 
 enum CoordinatorStyleCase {
-    case tap
+    case app, tabBar
     case home, search
 }

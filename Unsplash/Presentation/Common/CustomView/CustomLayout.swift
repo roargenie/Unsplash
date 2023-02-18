@@ -12,7 +12,7 @@ final class CustomLayout: UICollectionViewLayout {
     weak var delegate: CustomLayoutDelegate?
     
     fileprivate var numberOfColumns: Int = 2
-    fileprivate var cellPadding: CGFloat = 6.0
+    fileprivate var cellPadding: CGFloat = 2.0
     fileprivate var cache: [UICollectionViewLayoutAttributes] = []
     fileprivate var contentHeight: CGFloat = 0.0
     
