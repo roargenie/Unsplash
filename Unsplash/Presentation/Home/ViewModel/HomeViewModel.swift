@@ -18,6 +18,8 @@ final class HomeViewModel: ViewModelType {
     
     struct Input {
         let refreshButtonTap: Signal<Void>
+        let randomPhotoItemSelected: Signal<RandomPhoto>
+        let photoCollectionItemSelected: Signal<PhotoCollection>
     }
     
     struct Output {
@@ -40,6 +42,21 @@ final class HomeViewModel: ViewModelType {
             }
             .disposed(by: disposeBag)
         
+        input.randomPhotoItemSelected
+            .withUnretained(self)
+            .emit { vc, item in
+                vc.coordinator?.showImageDetailViewController(item: item)
+            }
+            .disposed(by: disposeBag)
+        
+        input.photoCollectionItemSelected
+            .withUnretained(self)
+            .emit { vc, item in
+                vc.coordinator?.showImageDetailViewController(item: item)
+            }
+            .disposed(by: disposeBag)
+        
+        
         
         return Output(
             randomPhotoList: randomPhotoList.asDriver(),
@@ -47,7 +64,6 @@ final class HomeViewModel: ViewModelType {
     }
     
     func requestRandomPhoto() {
-        print(#function)
         APIManager.shared.requestData([RandomPhoto].self,
                                       router: UnsplashRouter.randomPhoto) { [weak self] response in
             guard let self = self else { return }
@@ -63,7 +79,6 @@ final class HomeViewModel: ViewModelType {
     }
     
     func requestPhotoCollections() {
-        print(#function)
         APIManager.shared.requestData([PhotoCollection].self,
                                       router: UnsplashRouter.photoCollection) { [weak self] response in
             guard let self = self else { return }

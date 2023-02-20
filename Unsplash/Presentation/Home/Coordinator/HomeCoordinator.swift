@@ -26,6 +26,22 @@ final class HomeCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
+    func showImageDetailViewController(item: RandomPhoto) {
+        let vc = ImageDetailViewController(
+            viewModel: ImageDetailViewModel(coordinator: self))
+        vc.viewModel.selectedRandomPhoto.accept([item])
+        vc.hidesBottomBarWhenPushed = true
+        navigationController.setNavigationBarHidden(false, animated: false)
+        navigationController.pushViewController(vc, animated: true)
+    }
     
+    func showImageDetailViewController(item: PhotoCollection) {
+        let vc = ImageDetailViewController(
+            viewModel: ImageDetailViewModel(coordinator: self))
+        vc.viewModel.selectedCollectionPhoto.accept([item])
+        vc.hidesBottomBarWhenPushed = true
+        navigationController.setNavigationBarHidden(false, animated: false)
+        navigationController.pushViewController(vc, animated: true)
+    }
     
 }

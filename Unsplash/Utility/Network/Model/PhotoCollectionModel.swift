@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PhotoCollection: Codable {
+struct PhotoCollection: Codable, RandomPhotoCollectionType {
     let id: String
     let width, height: Int
     let urls: Urls

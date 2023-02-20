@@ -31,7 +31,7 @@ final class HomeViewController: UIViewController {
     
     private var randomPhotoButton: UIButton = UIButton().then {
         $0.setTitle("Random", for: .normal)
-        $0.setTitleColor(.black, for: .normal)
+        $0.setTitleColor(.white, for: .normal)
     }
     
     private var collectionPhotoButton: UIButton = UIButton().then {
@@ -40,7 +40,7 @@ final class HomeViewController: UIViewController {
     }
     
     private var selectedUnderLineView: UIView = UIView().then {
-        $0.backgroundColor = .black
+        $0.backgroundColor = .white
     }
     
     private var backgroundUnderLineView: UIView = UIView().then {
@@ -60,11 +60,15 @@ final class HomeViewController: UIViewController {
     //MARK: - Properties
     
     private lazy var input = HomeViewModel.Input(
-        refreshButtonTap: randomPhotoView.refreshButton.rx.tap.asSignal())
+        refreshButtonTap: randomPhotoView.refreshButton.rx.tap.asSignal(),
+        randomPhotoItemSelected: randomPhotoView.collectionView.rx.modelSelected(RandomPhoto.self).asSignal(),
+        photoCollectionItemSelected: photoCollectionsView.collectionView.rx.modelSelected(PhotoCollection.self).asSignal())
     private lazy var output = viewModel.transform(input: input)
     private let viewModel: HomeViewModel
     private var disposeBag = DisposeBag()
     
+    //MARK: - Init
+
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -78,7 +82,6 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(#function)
         viewModel.requestRandomPhoto()
         viewModel.requestPhotoCollections()
         configureUI()
@@ -86,10 +89,17 @@ final class HomeViewController: UIViewController {
         bind()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     //MARK: - SetUI
     
     private func configureUI() {
-        self.view.backgroundColor = .white
+        navigationItem.backButtonTitle = ""
+        
+        self.view.backgroundColor = .black
         [indicatorView, scrollView].forEach { self.view.addSubview($0) }
     }
     
@@ -179,28 +189,12 @@ final class HomeViewController: UIViewController {
                 vc.randomPhotoView.data = value
             }
             .disposed(by: disposeBag)
-            
-//        input.refreshButtonTap
-//            .withUnretained(self)
-//            .emit { vc, _ in
-//                vc.viewModel.requestRandomPhoto()
-//            }
-//            .disposed(by: disposeBag)
         
         output.randomPhotoList
             .drive(randomPhotoView.collectionView.rx.items) { [weak self] cv, index, item in
                 guard let self = self else { return UICollectionViewCell()}
                 let cell = cv.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.id, for: IndexPath(item: index, section: 0)) as! HomeCollectionViewCell
-                
-                DispatchQueue.global().async {
-                    let url = URL(string: item.urls.regular)!
-                    let data = try? Data(contentsOf: url)
-                    DispatchQueue.main.async {
-                        if let image = data {
-                            cell.imageView.image = UIImage(data: image)
-                        }
-                    }
-                }
+                cell.setUpCell(item: item)
                 return cell
             }
             .disposed(by: disposeBag)
@@ -209,21 +203,21 @@ final class HomeViewController: UIViewController {
             .drive(photoCollectionsView.collectionView.rx.items) { [weak self] cv, index, item in
                 guard let self = self else { return UICollectionViewCell() }
                 let cell = cv.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.id, for: IndexPath(item: index, section: 0)) as! HomeCollectionViewCell
-                
-                DispatchQueue.global().async {
-                    let url = URL(string: item.urls.regular)!
-                    let data = try? Data(contentsOf: url)
-                    DispatchQueue.main.async {
-                        if let image = data {
-                            cell.imageView.image = UIImage(data: image)
-                        }
-                    }
-                }
+                cell.setUpCell(item: item)
                 return cell
             }
             .disposed(by: disposeBag)
         
+        
+        
     }
+    
+    
+}
+
+    //MARK: - Extension
+
+extension HomeViewController {
     
     private func changeUnderLinePosition(index: Int, selectedButton: UIButton, deselectedButton: UIButton) {
         if index == 0 {
@@ -241,12 +235,8 @@ final class HomeViewController: UIViewController {
                 self.view.layoutIfNeeded()
             }
         }
-        selectedButton.setTitleColor(.black, for: .normal)
+        selectedButton.setTitleColor(.white, for: .normal)
         deselectedButton.setTitleColor(.lightGray, for: .normal)
     }
-    
-    
-    
-    
     
 }

@@ -30,6 +30,7 @@ final class RandomPhotoView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .black
         configureUI()
         setConstraints()
     }
@@ -44,7 +45,7 @@ final class RandomPhotoView: UIView {
         let collectionViewLayout = CustomLayout()
         collectionViewLayout.delegate = self
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
-        collectionView.backgroundColor = .systemBackground
+        collectionView.backgroundColor = .black
         collectionView.contentInset = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4)
         self.addSubview(collectionView)
         

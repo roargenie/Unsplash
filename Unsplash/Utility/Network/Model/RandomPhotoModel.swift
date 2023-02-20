@@ -7,9 +7,13 @@
 
 import Foundation
 
+protocol RandomPhotoCollectionType {
+    var urls: Urls { get }
+}
+
 //MARK: - RandomPhoto
 
-struct RandomPhoto: Codable {
+struct RandomPhoto: Codable, RandomPhotoCollectionType {
     let id: String
     let width, height: Int
     let urls: Urls

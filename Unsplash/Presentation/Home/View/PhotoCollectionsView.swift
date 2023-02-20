@@ -12,15 +12,17 @@ final class PhotoCollectionsView: UIView {
     
     //MARK: - UI
 
-    lazy var collectionView = UICollectionView(frame: .zero,
+    lazy var collectionView: UICollectionView = UICollectionView(frame: .zero,
                                                collectionViewLayout: UICollectionViewLayout.photoCollectionFlowLayout()).then {
         $0.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.id)
+        $0.backgroundColor = .black
     }
     
     //MARK: - Init
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .black
         configureUI()
         setConstraints()
     }
@@ -62,7 +64,7 @@ extension UICollectionViewLayout {
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 0
         section.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
+            top: 4,
             leading: 0,
             bottom: 0,
             trailing: 0)

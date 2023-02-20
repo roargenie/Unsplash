@@ -36,4 +36,17 @@ final class HomeCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    func setUpCell(item: RandomPhotoCollectionType) {
+        DispatchQueue.global().async { [weak self] in
+            guard let self = self else { return }
+            let url = URL(string: item.urls.regular)!
+            let data = try? Data(contentsOf: url)
+            DispatchQueue.main.async {
+                if let image = data {
+                    self.imageView.image = UIImage(data: image)
+                }
+            }
+        }
+    }
+    
 }

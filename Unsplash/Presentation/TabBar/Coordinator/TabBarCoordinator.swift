@@ -45,7 +45,7 @@ final class TabBarCoordinator: Coordinator {
         self.tabBarController.selectedIndex = TabBarPageCase.home.pageOrderNumber
         self.tabBarController.view.backgroundColor = .systemBackground
         self.tabBarController.tabBar.backgroundColor = .systemBackground
-        self.tabBarController.tabBar.tintColor = .black
+        self.tabBarController.tabBar.tintColor = .white
         self.tabBarController.tabBar.unselectedItemTintColor = .gray
         self.changeAnimation()
         self.navigationController.pushViewController(tabBarController, animated: true)
