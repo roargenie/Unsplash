@@ -19,13 +19,11 @@ final class LoginViewController: UIViewController {
     private var passwordTextField = DefaultTextField(placeHolder: "Password")
     private var loginButton = DefaultButton(title: "Log In")
     
-    
-    
     //MARK: - Properties
     
     private lazy var input = LoginViewModel.Input(
         emailTextFiled: emailTextField.rx.text.orEmpty.asSignal(onErrorJustReturn: ""),
-        passwordTextField: emailTextField.rx.text.orEmpty.asSignal(onErrorJustReturn: ""))
+        passwordTextField: passwordTextField.rx.text.orEmpty.asSignal(onErrorJustReturn: ""))
     private lazy var output = viewModel.transform(input: input)
     private let viewModel: LoginViewModel
     private var disposeBag = DisposeBag()
@@ -85,6 +83,9 @@ final class LoginViewController: UIViewController {
         output.isValid
             .drive(loginButton.rx.isValid)
             .disposed(by: disposeBag)
+        
+            
+            
             
         
         

@@ -37,28 +37,25 @@ final class LoginViewModel: ViewModelType {
         
         input.emailTextFiled
             .map { $0.isValidEmail() }
-//            .withUnretained(self)
-            .emit { [weak self] value in
-                guard let self = self else { return }
-                self.emailValid.accept(value)
+            .withUnretained(self)
+            .emit { vc, value in
+                vc.emailValid.accept(value)
             }
             .disposed(by: disposeBag)
         
         input.passwordTextField
-            .map { $0.count > 4 && $0.count < 16 }
-//            .withUnretained(self)
-            .emit { [weak self] value in
-                guard let self = self else { return }
-                self.passwordValid.accept(value)
+            .map { $0.count > 8 }
+            .withUnretained(self)
+            .emit { vc, value in
+                vc.passwordValid.accept(value)
             }
             .disposed(by: disposeBag)
         
         Observable.combineLatest(emailValid, passwordValid)
             .map { $0 && $1 }
-//            .withUnretained(self)
-            .subscribe { [weak self] isValid in
-                guard let self = self else { return }
-                self.isValid.accept(isValid)
+            .withUnretained(self)
+            .bind { vc, isValid in
+                vc.isValid.accept(isValid)
             }
             .disposed(by: disposeBag)
         
