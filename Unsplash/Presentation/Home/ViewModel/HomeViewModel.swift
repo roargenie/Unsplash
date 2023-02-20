@@ -14,6 +14,7 @@ final class HomeViewModel: ViewModelType {
     
     private weak var coordinator: HomeCoordinator?
     var randomPhotoList = BehaviorRelay<[RandomPhoto]>(value: [])
+    var photoCollectionList = BehaviorRelay<[PhotoCollection]>(value: [])
     
     struct Input {
         let refreshButtonTap: Signal<Void>
@@ -21,6 +22,7 @@ final class HomeViewModel: ViewModelType {
     
     struct Output {
         let randomPhotoList: Driver<[RandomPhoto]>
+        let photoCollectionList: Driver<[PhotoCollection]>
     }
     
     var disposeBag = DisposeBag()
@@ -39,7 +41,9 @@ final class HomeViewModel: ViewModelType {
             .disposed(by: disposeBag)
         
         
-        return Output(randomPhotoList: randomPhotoList.asDriver())
+        return Output(
+            randomPhotoList: randomPhotoList.asDriver(),
+            photoCollectionList: photoCollectionList.asDriver())
     }
     
     func requestRandomPhoto() {
@@ -51,10 +55,24 @@ final class HomeViewModel: ViewModelType {
             case .success(let value):
                 guard let value = value else { return }
                 self.randomPhotoList.accept(value)
-//                print("🟢🟢🟢🟢🟢", value)
                 dump(value, name: "🟢🟢🟢🟢🟢")
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func requestPhotoCollections() {
+        print(#function)
+        APIManager.shared.requestData([PhotoCollection].self,
+                                      router: UnsplashRouter.photoCollection) { [weak self] response in
+            guard let self = self else { return }
+            switch response {
+            case .success(let value):
+                guard let value = value else { return }
+                self.photoCollectionList.accept(value)
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }

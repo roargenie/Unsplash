@@ -26,6 +26,8 @@ final class RandomPhotoView: UIView {
     
     var data: [RandomPhoto] = []
     
+    //MARK: - Init
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
@@ -36,6 +38,8 @@ final class RandomPhotoView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Method
+
     private func configureUI() {
         let collectionViewLayout = CustomLayout()
         collectionViewLayout.delegate = self
@@ -59,6 +63,8 @@ final class RandomPhotoView: UIView {
     }
     
 }
+
+    //MARK: - Extension
 
 extension RandomPhotoView: CustomLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, heightForImageAtIndexPath indexPath: IndexPath) -> CGFloat {

@@ -24,7 +24,7 @@ extension UnsplashRouter: URLRequestConvertible {
     var path: String {
         switch self {
         case .randomPhoto: return "photos/random"
-        case .photoCollection: return ""
+        case .photoCollection: return "photos"
         case .searchPhoto: return ""
         case .searchUser: return ""
         }
@@ -45,8 +45,8 @@ extension UnsplashRouter: URLRequestConvertible {
         switch self {
         case .randomPhoto:
             return ["count": "30"]
-//        case .photoCollection:
-//            return ["": ""]
+        case .photoCollection:
+            return ["": ""]
 //        case .searchPhoto:
 //            return ["": ""]
 //        case .searchUser:

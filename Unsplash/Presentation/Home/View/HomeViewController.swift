@@ -80,12 +80,13 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         print(#function)
         viewModel.requestRandomPhoto()
+        viewModel.requestPhotoCollections()
         configureUI()
         setConstraints()
         bind()
     }
     
-    //MARK: - setUI
+    //MARK: - SetUI
     
     private func configureUI() {
         self.view.backgroundColor = .white
@@ -179,17 +180,36 @@ final class HomeViewController: UIViewController {
             }
             .disposed(by: disposeBag)
             
-        input.refreshButtonTap
-            .withUnretained(self)
-            .emit { vc, _ in
-                vc.viewModel.requestRandomPhoto()
-            }
-            .disposed(by: disposeBag)
+//        input.refreshButtonTap
+//            .withUnretained(self)
+//            .emit { vc, _ in
+//                vc.viewModel.requestRandomPhoto()
+//            }
+//            .disposed(by: disposeBag)
         
         output.randomPhotoList
             .drive(randomPhotoView.collectionView.rx.items) { [weak self] cv, index, item in
                 guard let self = self else { return UICollectionViewCell()}
                 let cell = cv.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.id, for: IndexPath(item: index, section: 0)) as! HomeCollectionViewCell
+                
+                DispatchQueue.global().async {
+                    let url = URL(string: item.urls.regular)!
+                    let data = try? Data(contentsOf: url)
+                    DispatchQueue.main.async {
+                        if let image = data {
+                            cell.imageView.image = UIImage(data: image)
+                        }
+                    }
+                }
+                return cell
+            }
+            .disposed(by: disposeBag)
+        
+        output.photoCollectionList
+            .drive(photoCollectionsView.collectionView.rx.items) { [weak self] cv, index, item in
+                guard let self = self else { return UICollectionViewCell() }
+                let cell = cv.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.id, for: IndexPath(item: index, section: 0)) as! HomeCollectionViewCell
+                
                 DispatchQueue.global().async {
                     let url = URL(string: item.urls.regular)!
                     let data = try? Data(contentsOf: url)

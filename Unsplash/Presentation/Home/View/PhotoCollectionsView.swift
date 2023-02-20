@@ -10,8 +10,15 @@ import SnapKit
 
 final class PhotoCollectionsView: UIView {
     
-//    var collectionView = UICollectionView()
+    //MARK: - UI
+
+    lazy var collectionView = UICollectionView(frame: .zero,
+                                               collectionViewLayout: UICollectionViewLayout.photoCollectionFlowLayout()).then {
+        $0.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.id)
+    }
     
+    //MARK: - Init
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
@@ -22,15 +29,47 @@ final class PhotoCollectionsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Method
+
     private func configureUI() {
-//        addSubview(collectionView)
-        self.backgroundColor = .orange
+        addSubview(collectionView)
     }
     
     private func setConstraints() {
-//        collectionView.snp.makeConstraints { make in
-//            make.edges.equalToSuperview()
-//        }
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
     
+}
+
+    //MARK: - Extension
+
+extension UICollectionViewLayout {
+    static func photoCollectionFlowLayout() -> UICollectionViewLayout {
+        
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(UIScreen.main.bounds.size.height / 3))
+        
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 0
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 0,
+            bottom: 0,
+            trailing: 0)
+        
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        
+        return layout
+        
+    }
 }

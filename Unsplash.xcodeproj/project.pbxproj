@@ -38,6 +38,8 @@
 		F69FB82829A0DA4100A500A0 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69FB82729A0DA4100A500A0 /* NetworkError.swift */; };
 		F69FB82B29A0FFB300A500A0 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = F69FB82A29A0FFB300A500A0 /* Differentiator */; };
 		F69FB82D29A0FFB300A500A0 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = F69FB82C29A0FFB300A500A0 /* RxDataSources */; };
+		F69FB82F29A350FF00A500A0 /* PhotoCollectionCustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69FB82E29A350FF00A500A0 /* PhotoCollectionCustomLayout.swift */; };
+		F69FB83129A35F2700A500A0 /* PhotoCollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69FB83029A35F2700A500A0 /* PhotoCollectionModel.swift */; };
 		F6DFAC59299BE35B00C420A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DFAC58299BE35B00C420A0 /* AppDelegate.swift */; };
 		F6DFAC5B299BE35B00C420A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DFAC5A299BE35B00C420A0 /* SceneDelegate.swift */; };
 		F6DFAC62299BE35C00C420A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6DFAC61299BE35C00C420A0 /* Assets.xcassets */; };
@@ -77,6 +79,8 @@
 		F683EFA9299E7E6A00C91974 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		F69FB82529A0D29300A500A0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		F69FB82729A0DA4100A500A0 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		F69FB82E29A350FF00A500A0 /* PhotoCollectionCustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionCustomLayout.swift; sourceTree = "<group>"; };
+		F69FB83029A35F2700A500A0 /* PhotoCollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionModel.swift; sourceTree = "<group>"; };
 		F6DFAC55299BE35B00C420A0 /* Unsplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6DFAC58299BE35B00C420A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6DFAC5A299BE35B00C420A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				F683EF91299E55EB00C91974 /* RandomPhotoModel.swift */,
+				F69FB83029A35F2700A500A0 /* PhotoCollectionModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -244,6 +249,8 @@
 			isa = PBXGroup;
 			children = (
 				F683EFA9299E7E6A00C91974 /* HomeCollectionViewCell.swift */,
+				F683EFA2299E792100C91974 /* CustomLayout.swift */,
+				F69FB82E29A350FF00A500A0 /* PhotoCollectionCustomLayout.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -440,7 +447,6 @@
 		F6DFAC7F299BE53A00C420A0 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
-				F683EFA2299E792100C91974 /* CustomLayout.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -538,6 +544,7 @@
 				F6DFAC82299BE8EF00C420A0 /* Matrix.swift in Sources */,
 				F683EF72299E31D200C91974 /* CoordinatorDelegate.swift in Sources */,
 				F683EF7D299E3FE600C91974 /* SearchCoordinator.swift in Sources */,
+				F69FB82F29A350FF00A500A0 /* PhotoCollectionCustomLayout.swift in Sources */,
 				F683EF65299E270000C91974 /* HomeViewModel.swift in Sources */,
 				F683EFA3299E792100C91974 /* CustomLayout.swift in Sources */,
 				F683EFAA299E7E6B00C91974 /* HomeCollectionViewCell.swift in Sources */,
@@ -551,6 +558,7 @@
 				F6DFAC94299BE96600C420A0 /* UsersPhotoView.swift in Sources */,
 				F69FB82829A0DA4100A500A0 /* NetworkError.swift in Sources */,
 				F6DFAC84299BE92700C420A0 /* SearchViewModel.swift in Sources */,
+				F69FB83129A35F2700A500A0 /* PhotoCollectionModel.swift in Sources */,
 				F6DFAC8C299BE94600C420A0 /* UserInfoViewController.swift in Sources */,
 				F683EF92299E55EB00C91974 /* RandomPhotoModel.swift in Sources */,
 				F683EF7F299E426600C91974 /* SearchViewController.swift in Sources */,
