@@ -26,7 +26,6 @@ final class APIManager {
                 switch response.result {
                 case .success(let value):
                     completion(.success(value))
-//                    print(value)
                 case .failure(_):
                     guard let error = APIError(rawValue: statusCode) else { return }
                     completion(.failure(error))

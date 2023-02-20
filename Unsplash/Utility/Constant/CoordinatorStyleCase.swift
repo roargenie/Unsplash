@@ -9,6 +9,7 @@ import Foundation
 
 enum CoordinatorStyleCase {
     case app, tabBar
-    case home, search
+    case home, search, myInfo
+    case login, singUp
     case imageDetail
 }

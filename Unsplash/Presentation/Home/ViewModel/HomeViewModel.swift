@@ -37,8 +37,9 @@ final class HomeViewModel: ViewModelType {
         
         input.refreshButtonTap
             .withUnretained(self)
-            .emit { _ in
-                self.requestRandomPhoto()
+            .throttle(.seconds(1), latest: false)
+            .emit { vc, _ in
+                vc.requestRandomPhoto()
             }
             .disposed(by: disposeBag)
         

@@ -8,12 +8,13 @@
 import Foundation
 
 enum TabBarPageCase: String, CaseIterable {
-    case home, search
+    case home, search, login
     
     init?(index: Int) {
         switch index {
         case 0: self = .home
         case 1: self = .search
+        case 2: self = .login
         default: return nil
         }
     }
@@ -22,13 +23,15 @@ enum TabBarPageCase: String, CaseIterable {
         switch self {
         case .home: return 0
         case .search: return 1
+        case .login: return 2
         }
     }
     
     var pageTitle: String {
         switch self {
-        case .home: return "Home"
-        case .search: return "Search"
+        case .home: return ""
+        case .search: return ""
+        case .login: return ""
         }
     }
     
@@ -36,6 +39,7 @@ enum TabBarPageCase: String, CaseIterable {
         switch self {
         case .home: return "house"
         case .search: return "magnifyingglass"
+        case .login: return "person.crop.circle"
         }
     }
     

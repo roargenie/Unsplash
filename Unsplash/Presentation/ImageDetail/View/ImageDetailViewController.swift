@@ -18,7 +18,6 @@ final class ImageDetailViewController: UIViewController {
     private var detailImageView: UIImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
         $0.backgroundColor = .black
-//        $0.image = UIImage(named: "testimage1")
     }
     
     private lazy var scrollView: UIScrollView = UIScrollView().then {
@@ -35,9 +34,6 @@ final class ImageDetailViewController: UIViewController {
     private lazy var output = viewModel.transform(input: input)
     let viewModel: ImageDetailViewModel
     private var disposeBag = DisposeBag()
-//    var randomPhotoRelay = PublishRelay<RandomPhoto>()
-//    var photoCollectionRelay = PublishRelay<PhotoCollection>()
-    
 
     //MARK: - Init
     
@@ -58,8 +54,6 @@ final class ImageDetailViewController: UIViewController {
         setConstraints()
         bind()
     }
-    
-    
     
     //MARK: - SetUI
     

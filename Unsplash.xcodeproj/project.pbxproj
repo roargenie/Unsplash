@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F62CC50429A3D544006CF7D3 /* DefaultTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC50329A3D544006CF7D3 /* DefaultTextField.swift */; };
+		F62CC50729A3D5EF006CF7D3 /* DefaultTextField+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC50629A3D5EF006CF7D3 /* DefaultTextField+Rx.swift */; };
+		F62CC50929A3D62D006CF7D3 /* String+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC50829A3D62D006CF7D3 /* String+Ex.swift */; };
+		F62CC50B29A3D697006CF7D3 /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC50A29A3D697006CF7D3 /* DefaultButton.swift */; };
+		F62CC50D29A3D6B2006CF7D3 /* ButtonStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC50C29A3D6B2006CF7D3 /* ButtonStatus.swift */; };
+		F62CC50F29A3DED1006CF7D3 /* TextField+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC50E29A3DED1006CF7D3 /* TextField+Ex.swift */; };
+		F62CC51129A3EA55006CF7D3 /* DefaultButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC51029A3EA55006CF7D3 /* DefaultButton+Rx.swift */; };
 		F683EF63299E26FC00C91974 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF62299E26FC00C91974 /* HomeViewController.swift */; };
 		F683EF65299E270000C91974 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF64299E270000C91974 /* HomeViewModel.swift */; };
 		F683EF67299E2F4900C91974 /* CoordinatorStyleCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF66299E2F4900C91974 /* CoordinatorStyleCase.swift */; };
@@ -42,6 +49,10 @@
 		F69FB83B29A36FD500A500A0 /* ImageDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69FB83A29A36FD500A500A0 /* ImageDetailViewModel.swift */; };
 		F69FB83D29A36FDC00A500A0 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69FB83C29A36FDC00A500A0 /* ImageDetailViewController.swift */; };
 		F69FB84529A3894F00A500A0 /* AppAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69FB84429A3894F00A500A0 /* AppAppearance.swift */; };
+		F69FB84729A3C1DD00A500A0 /* DecodingModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69FB84629A3C1DD00A500A0 /* DecodingModelType.swift */; };
+		F69FB84929A3CC4000A500A0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69FB84829A3CC4000A500A0 /* LoginViewController.swift */; };
+		F69FB84B29A3CC4800A500A0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69FB84A29A3CC4800A500A0 /* LoginViewModel.swift */; };
+		F69FB84E29A3CF3E00A500A0 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69FB84D29A3CF3E00A500A0 /* LoginCoordinator.swift */; };
 		F6DFAC59299BE35B00C420A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DFAC58299BE35B00C420A0 /* AppDelegate.swift */; };
 		F6DFAC5B299BE35B00C420A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DFAC5A299BE35B00C420A0 /* SceneDelegate.swift */; };
 		F6DFAC62299BE35C00C420A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6DFAC61299BE35C00C420A0 /* Assets.xcassets */; };
@@ -52,6 +63,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F62CC50329A3D544006CF7D3 /* DefaultTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextField.swift; sourceTree = "<group>"; };
+		F62CC50629A3D5EF006CF7D3 /* DefaultTextField+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultTextField+Rx.swift"; sourceTree = "<group>"; };
+		F62CC50829A3D62D006CF7D3 /* String+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ex.swift"; sourceTree = "<group>"; };
+		F62CC50A29A3D697006CF7D3 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
+		F62CC50C29A3D6B2006CF7D3 /* ButtonStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStatus.swift; sourceTree = "<group>"; };
+		F62CC50E29A3DED1006CF7D3 /* TextField+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Ex.swift"; sourceTree = "<group>"; };
+		F62CC51029A3EA55006CF7D3 /* DefaultButton+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultButton+Rx.swift"; sourceTree = "<group>"; };
 		F683EF62299E26FC00C91974 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F683EF64299E270000C91974 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F683EF66299E2F4900C91974 /* CoordinatorStyleCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorStyleCase.swift; sourceTree = "<group>"; };
@@ -79,6 +97,10 @@
 		F69FB83A29A36FD500A500A0 /* ImageDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewModel.swift; sourceTree = "<group>"; };
 		F69FB83C29A36FDC00A500A0 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
 		F69FB84429A3894F00A500A0 /* AppAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAppearance.swift; sourceTree = "<group>"; };
+		F69FB84629A3C1DD00A500A0 /* DecodingModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingModelType.swift; sourceTree = "<group>"; };
+		F69FB84829A3CC4000A500A0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F69FB84A29A3CC4800A500A0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		F69FB84D29A3CF3E00A500A0 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		F6DFAC55299BE35B00C420A0 /* Unsplash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unsplash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6DFAC58299BE35B00C420A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6DFAC5A299BE35B00C420A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +131,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F62CC50529A3D5C4006CF7D3 /* RxExtension */ = {
+			isa = PBXGroup;
+			children = (
+				F62CC50629A3D5EF006CF7D3 /* DefaultTextField+Rx.swift */,
+				F62CC51029A3EA55006CF7D3 /* DefaultButton+Rx.swift */,
+			);
+			path = RxExtension;
+			sourceTree = "<group>";
+		};
 		F683EF5D299E26DF00C91974 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				F683EF73299E31D900C91974 /* ViewModelType.swift */,
+				F69FB84629A3C1DD00A500A0 /* DecodingModelType.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -294,6 +326,7 @@
 		F69FB83E29A36FFC00A500A0 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				F69FB84D29A3CF3E00A500A0 /* LoginCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -301,6 +334,7 @@
 		F69FB83F29A3700000A500A0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F69FB84829A3CC4000A500A0 /* LoginViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -308,6 +342,7 @@
 		F69FB84029A3700200A500A0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F69FB84A29A3CC4800A500A0 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -331,6 +366,13 @@
 			children = (
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F69FB84C29A3CC5100A500A0 /* SingUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SingUp;
 			sourceTree = "<group>";
 		};
 		F6DFAC4C299BE35B00C420A0 = {
@@ -391,6 +433,7 @@
 				F69FB83429A36F9C00A500A0 /* ImageDetail */,
 				F6DFAC75299BE3EE00C420A0 /* Search */,
 				F69FB83329A36E9D00A500A0 /* Login */,
+				F69FB84C29A3CC5100A500A0 /* SingUp */,
 				F69FB83229A36E8700A500A0 /* MyInfo */,
 			);
 			path = Presentation;
@@ -411,6 +454,8 @@
 		F6DFAC72299BE3B900C420A0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				F62CC50829A3D62D006CF7D3 /* String+Ex.swift */,
+				F62CC50E29A3DED1006CF7D3 /* TextField+Ex.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -458,6 +503,7 @@
 				F6DFAC81299BE8EF00C420A0 /* Matrix.swift */,
 				F683EF66299E2F4900C91974 /* CoordinatorStyleCase.swift */,
 				F683EF68299E302300C91974 /* TabBarPageCase.swift */,
+				F62CC50C29A3D6B2006CF7D3 /* ButtonStatus.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -468,6 +514,7 @@
 				F683EF6B299E31A800C91974 /* Coordinator */,
 				F683EF6D299E31B500C91974 /* ViewModel */,
 				F6DFAC7F299BE53A00C420A0 /* CustomView */,
+				F62CC50529A3D5C4006CF7D3 /* RxExtension */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -475,6 +522,8 @@
 		F6DFAC7F299BE53A00C420A0 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				F62CC50329A3D544006CF7D3 /* DefaultTextField.swift */,
+				F62CC50A29A3D697006CF7D3 /* DefaultButton.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -569,22 +618,30 @@
 				F69FB82629A0D29300A500A0 /* AppCoordinator.swift in Sources */,
 				F683EF98299E579200C91974 /* EndPoint.swift in Sources */,
 				F6DFAC82299BE8EF00C420A0 /* Matrix.swift in Sources */,
+				F62CC50929A3D62D006CF7D3 /* String+Ex.swift in Sources */,
 				F683EF72299E31D200C91974 /* CoordinatorDelegate.swift in Sources */,
+				F69FB84729A3C1DD00A500A0 /* DecodingModelType.swift in Sources */,
+				F62CC50429A3D544006CF7D3 /* DefaultTextField.swift in Sources */,
 				F683EF7D299E3FE600C91974 /* SearchCoordinator.swift in Sources */,
+				F69FB84E29A3CF3E00A500A0 /* LoginCoordinator.swift in Sources */,
 				F683EF65299E270000C91974 /* HomeViewModel.swift in Sources */,
 				F683EFA3299E792100C91974 /* CustomLayout.swift in Sources */,
 				F683EFAA299E7E6B00C91974 /* HomeCollectionViewCell.swift in Sources */,
 				F683EFA6299E7E0600C91974 /* MockData.swift in Sources */,
 				F683EF77299E36B800C91974 /* TabBarCoordinator.swift in Sources */,
 				F683EF9D299E61B400C91974 /* RandomPhotoView.swift in Sources */,
+				F62CC50B29A3D697006CF7D3 /* DefaultButton.swift in Sources */,
 				F683EF70299E31C600C91974 /* Coordinator.swift in Sources */,
+				F69FB84B29A3CC4800A500A0 /* LoginViewModel.swift in Sources */,
 				F683EF63299E26FC00C91974 /* HomeViewController.swift in Sources */,
 				F683EF90299E55D400C91974 /* UnsplashRouter.swift in Sources */,
+				F62CC50F29A3DED1006CF7D3 /* TextField+Ex.swift in Sources */,
 				F69FB82829A0DA4100A500A0 /* NetworkError.swift in Sources */,
 				F69FB83D29A36FDC00A500A0 /* ImageDetailViewController.swift in Sources */,
 				F6DFAC84299BE92700C420A0 /* SearchViewModel.swift in Sources */,
 				F69FB83129A35F2700A500A0 /* PhotoCollectionModel.swift in Sources */,
 				F683EF92299E55EB00C91974 /* RandomPhotoModel.swift in Sources */,
+				F62CC50729A3D5EF006CF7D3 /* DefaultTextField+Rx.swift in Sources */,
 				F683EF7F299E426600C91974 /* SearchViewController.swift in Sources */,
 				F6DFAC59299BE35B00C420A0 /* AppDelegate.swift in Sources */,
 				F6DFAC6D299BE3A000C420A0 /* APIKey.swift in Sources */,
@@ -595,7 +652,10 @@
 				F683EF69299E302300C91974 /* TabBarPageCase.swift in Sources */,
 				F683EF94299E563A00C91974 /* APIManager.swift in Sources */,
 				F683EF67299E2F4900C91974 /* CoordinatorStyleCase.swift in Sources */,
+				F69FB84929A3CC4000A500A0 /* LoginViewController.swift in Sources */,
 				F683EFA1299E785B00C91974 /* CustomLayoutDelegate.swift in Sources */,
+				F62CC51129A3EA55006CF7D3 /* DefaultButton+Rx.swift in Sources */,
+				F62CC50D29A3D6B2006CF7D3 /* ButtonStatus.swift in Sources */,
 				F683EF74299E31D900C91974 /* ViewModelType.swift in Sources */,
 				F69FB84529A3894F00A500A0 /* AppAppearance.swift in Sources */,
 			);

@@ -7,9 +7,7 @@
 
 import Foundation
 
-protocol RandomPhotoCollectionType {
-    var urls: Urls { get }
-}
+
 
 //MARK: - RandomPhoto
 

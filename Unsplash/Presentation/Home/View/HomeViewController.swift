@@ -91,14 +91,14 @@ final class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: false)
+//        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     //MARK: - SetUI
     
     private func configureUI() {
         navigationItem.backButtonTitle = ""
-        
+        navigationItem.title = "Home"
         self.view.backgroundColor = .black
         [indicatorView, scrollView].forEach { self.view.addSubview($0) }
     }
