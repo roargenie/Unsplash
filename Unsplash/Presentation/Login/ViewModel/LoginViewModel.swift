@@ -21,6 +21,7 @@ final class LoginViewModel: ViewModelType {
     struct Input {
         let emailTextFiled: Signal<String>
         let passwordTextField: Signal<String>
+        let signUpButtonTapped: Signal<Void>
     }
     
     struct Output {
@@ -56,6 +57,13 @@ final class LoginViewModel: ViewModelType {
             .withUnretained(self)
             .bind { vc, isValid in
                 vc.isValid.accept(isValid)
+            }
+            .disposed(by: disposeBag)
+        
+        input.signUpButtonTapped
+            .withUnretained(self)
+            .emit { vc, _ in
+                vc.coordinator?.showSignupViewController()
             }
             .disposed(by: disposeBag)
         

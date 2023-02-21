@@ -25,7 +25,12 @@ final class LoginCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    
+    func showSignupViewController() {
+        let vc = SignUpViewController(
+            viewModel: SignUpViewModel(
+                coordinator: self))
+        navigationController.pushViewController(vc, animated: true)
+    }
     
     
 }

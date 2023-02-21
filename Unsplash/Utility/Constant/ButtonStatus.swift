@@ -11,12 +11,15 @@ enum ButtonStatus {
     
     case active
     case inactive
+    case normal
     
     var backgroundColor: UIColor {
         switch self {
         case .active:
             return .red
         case .inactive:
+            return .gray
+        case .normal:
             return .white
         }
     }
@@ -26,6 +29,8 @@ enum ButtonStatus {
         case .active:
             return .white
         case .inactive:
+            return .white
+        case .normal:
             return .black
         }
     }

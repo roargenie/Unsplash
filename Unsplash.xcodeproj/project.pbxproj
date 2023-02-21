@@ -14,6 +14,10 @@
 		F62CC50D29A3D6B2006CF7D3 /* ButtonStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC50C29A3D6B2006CF7D3 /* ButtonStatus.swift */; };
 		F62CC50F29A3DED1006CF7D3 /* TextField+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC50E29A3DED1006CF7D3 /* TextField+Ex.swift */; };
 		F62CC51129A3EA55006CF7D3 /* DefaultButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC51029A3EA55006CF7D3 /* DefaultButton+Rx.swift */; };
+		F62CC51529A47BA3006CF7D3 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC51429A47BA3006CF7D3 /* SignUpViewModel.swift */; };
+		F62CC51729A47BAC006CF7D3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC51629A47BAC006CF7D3 /* SignUpViewController.swift */; };
+		F62CC51929A4826D006CF7D3 /* DefaultLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC51829A4826D006CF7D3 /* DefaultLabel.swift */; };
+		F62CC51B29A48286006CF7D3 /* LabelStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC51A29A48286006CF7D3 /* LabelStatus.swift */; };
 		F683EF63299E26FC00C91974 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF62299E26FC00C91974 /* HomeViewController.swift */; };
 		F683EF65299E270000C91974 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF64299E270000C91974 /* HomeViewModel.swift */; };
 		F683EF67299E2F4900C91974 /* CoordinatorStyleCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF66299E2F4900C91974 /* CoordinatorStyleCase.swift */; };
@@ -70,6 +74,10 @@
 		F62CC50C29A3D6B2006CF7D3 /* ButtonStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStatus.swift; sourceTree = "<group>"; };
 		F62CC50E29A3DED1006CF7D3 /* TextField+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Ex.swift"; sourceTree = "<group>"; };
 		F62CC51029A3EA55006CF7D3 /* DefaultButton+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultButton+Rx.swift"; sourceTree = "<group>"; };
+		F62CC51429A47BA3006CF7D3 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		F62CC51629A47BAC006CF7D3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		F62CC51829A4826D006CF7D3 /* DefaultLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLabel.swift; sourceTree = "<group>"; };
+		F62CC51A29A48286006CF7D3 /* LabelStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStatus.swift; sourceTree = "<group>"; };
 		F683EF62299E26FC00C91974 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F683EF64299E270000C91974 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F683EF66299E2F4900C91974 /* CoordinatorStyleCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorStyleCase.swift; sourceTree = "<group>"; };
@@ -138,6 +146,22 @@
 				F62CC51029A3EA55006CF7D3 /* DefaultButton+Rx.swift */,
 			);
 			path = RxExtension;
+			sourceTree = "<group>";
+		};
+		F62CC51229A47B99006CF7D3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F62CC51629A47BAC006CF7D3 /* SignUpViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F62CC51329A47B9C006CF7D3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F62CC51429A47BA3006CF7D3 /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		F683EF5D299E26DF00C91974 /* Home */ = {
@@ -371,6 +395,8 @@
 		F69FB84C29A3CC5100A500A0 /* SingUp */ = {
 			isa = PBXGroup;
 			children = (
+				F62CC51329A47B9C006CF7D3 /* ViewModel */,
+				F62CC51229A47B99006CF7D3 /* View */,
 			);
 			path = SingUp;
 			sourceTree = "<group>";
@@ -504,6 +530,7 @@
 				F683EF66299E2F4900C91974 /* CoordinatorStyleCase.swift */,
 				F683EF68299E302300C91974 /* TabBarPageCase.swift */,
 				F62CC50C29A3D6B2006CF7D3 /* ButtonStatus.swift */,
+				F62CC51A29A48286006CF7D3 /* LabelStatus.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -524,6 +551,7 @@
 			children = (
 				F62CC50329A3D544006CF7D3 /* DefaultTextField.swift */,
 				F62CC50A29A3D697006CF7D3 /* DefaultButton.swift */,
+				F62CC51829A4826D006CF7D3 /* DefaultLabel.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -619,6 +647,7 @@
 				F683EF98299E579200C91974 /* EndPoint.swift in Sources */,
 				F6DFAC82299BE8EF00C420A0 /* Matrix.swift in Sources */,
 				F62CC50929A3D62D006CF7D3 /* String+Ex.swift in Sources */,
+				F62CC51929A4826D006CF7D3 /* DefaultLabel.swift in Sources */,
 				F683EF72299E31D200C91974 /* CoordinatorDelegate.swift in Sources */,
 				F69FB84729A3C1DD00A500A0 /* DecodingModelType.swift in Sources */,
 				F62CC50429A3D544006CF7D3 /* DefaultTextField.swift in Sources */,
@@ -639,6 +668,7 @@
 				F69FB82829A0DA4100A500A0 /* NetworkError.swift in Sources */,
 				F69FB83D29A36FDC00A500A0 /* ImageDetailViewController.swift in Sources */,
 				F6DFAC84299BE92700C420A0 /* SearchViewModel.swift in Sources */,
+				F62CC51729A47BAC006CF7D3 /* SignUpViewController.swift in Sources */,
 				F69FB83129A35F2700A500A0 /* PhotoCollectionModel.swift in Sources */,
 				F683EF92299E55EB00C91974 /* RandomPhotoModel.swift in Sources */,
 				F62CC50729A3D5EF006CF7D3 /* DefaultTextField+Rx.swift in Sources */,
@@ -646,6 +676,7 @@
 				F6DFAC59299BE35B00C420A0 /* AppDelegate.swift in Sources */,
 				F6DFAC6D299BE3A000C420A0 /* APIKey.swift in Sources */,
 				F69FB83B29A36FD500A500A0 /* ImageDetailViewModel.swift in Sources */,
+				F62CC51B29A48286006CF7D3 /* LabelStatus.swift in Sources */,
 				F683EF7A299E388800C91974 /* HomeCoordinator.swift in Sources */,
 				F6DFAC5B299BE35B00C420A0 /* SceneDelegate.swift in Sources */,
 				F683EF9F299E61C400C91974 /* PhotoCollectionsView.swift in Sources */,
@@ -657,6 +688,7 @@
 				F62CC51129A3EA55006CF7D3 /* DefaultButton+Rx.swift in Sources */,
 				F62CC50D29A3D6B2006CF7D3 /* ButtonStatus.swift in Sources */,
 				F683EF74299E31D900C91974 /* ViewModelType.swift in Sources */,
+				F62CC51529A47BA3006CF7D3 /* SignUpViewModel.swift in Sources */,
 				F69FB84529A3894F00A500A0 /* AppAppearance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,12 +18,16 @@ final class LoginViewController: UIViewController {
     private var emailTextField = DefaultTextField(placeHolder: "Email")
     private var passwordTextField = DefaultTextField(placeHolder: "Password")
     private var loginButton = DefaultButton(title: "Log In")
+    private var signUpButton: DefaultButton = DefaultButton(title: "Sign Up").then {
+        $0.setValidStatus(status: .normal)
+    }
     
     //MARK: - Properties
     
     private lazy var input = LoginViewModel.Input(
         emailTextFiled: emailTextField.rx.text.orEmpty.asSignal(onErrorJustReturn: ""),
-        passwordTextField: passwordTextField.rx.text.orEmpty.asSignal(onErrorJustReturn: ""))
+        passwordTextField: passwordTextField.rx.text.orEmpty.asSignal(onErrorJustReturn: ""),
+        signUpButtonTapped: signUpButton.rx.tap.asSignal())
     private lazy var output = viewModel.transform(input: input)
     private let viewModel: LoginViewModel
     private var disposeBag = DisposeBag()
@@ -53,7 +57,7 @@ final class LoginViewController: UIViewController {
     private func configureUI() {
         navigationItem.title = "Login"
         navigationController?.navigationBar.prefersLargeTitles = true
-        [emailTextField, passwordTextField, loginButton].forEach { view.addSubview($0) }
+        [emailTextField, passwordTextField, loginButton, signUpButton].forEach { view.addSubview($0) }
     }
     
     private func setConstraints() {
@@ -69,6 +73,11 @@ final class LoginViewController: UIViewController {
         }
         loginButton.snp.makeConstraints { make in
             make.top.equalTo(passwordTextField.snp.bottom).offset(32)
+            make.horizontalEdges.equalToSuperview().inset(8)
+            make.height.equalTo(44)
+        }
+        signUpButton.snp.makeConstraints { make in
+            make.top.equalTo(loginButton.snp.bottom).offset(12)
             make.horizontalEdges.equalToSuperview().inset(8)
             make.height.equalTo(44)
         }
@@ -99,6 +108,8 @@ final class LoginViewController: UIViewController {
 
 extension LoginViewController {
     
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
 }
