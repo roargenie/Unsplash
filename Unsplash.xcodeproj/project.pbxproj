@@ -18,6 +18,10 @@
 		F62CC51729A47BAC006CF7D3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC51629A47BAC006CF7D3 /* SignUpViewController.swift */; };
 		F62CC51929A4826D006CF7D3 /* DefaultLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC51829A4826D006CF7D3 /* DefaultLabel.swift */; };
 		F62CC51B29A48286006CF7D3 /* LabelStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC51A29A48286006CF7D3 /* LabelStatus.swift */; };
+		F62CC51D29A495F4006CF7D3 /* MyInfoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC51C29A495F4006CF7D3 /* MyInfoCoordinator.swift */; };
+		F62CC51F29A495FA006CF7D3 /* MyInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC51E29A495FA006CF7D3 /* MyInfoViewModel.swift */; };
+		F62CC52129A49604006CF7D3 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC52029A49604006CF7D3 /* MyInfoViewController.swift */; };
+		F62CC52429A49947006CF7D3 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = F62CC52329A49947006CF7D3 /* Toast */; };
 		F683EF63299E26FC00C91974 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF62299E26FC00C91974 /* HomeViewController.swift */; };
 		F683EF65299E270000C91974 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF64299E270000C91974 /* HomeViewModel.swift */; };
 		F683EF67299E2F4900C91974 /* CoordinatorStyleCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF66299E2F4900C91974 /* CoordinatorStyleCase.swift */; };
@@ -78,6 +82,9 @@
 		F62CC51629A47BAC006CF7D3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		F62CC51829A4826D006CF7D3 /* DefaultLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLabel.swift; sourceTree = "<group>"; };
 		F62CC51A29A48286006CF7D3 /* LabelStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStatus.swift; sourceTree = "<group>"; };
+		F62CC51C29A495F4006CF7D3 /* MyInfoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoCoordinator.swift; sourceTree = "<group>"; };
+		F62CC51E29A495FA006CF7D3 /* MyInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewModel.swift; sourceTree = "<group>"; };
+		F62CC52029A49604006CF7D3 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
 		F683EF62299E26FC00C91974 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F683EF64299E270000C91974 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F683EF66299E2F4900C91974 /* CoordinatorStyleCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorStyleCase.swift; sourceTree = "<group>"; };
@@ -128,6 +135,7 @@
 				F69FB82B29A0FFB300A500A0 /* Differentiator in Frameworks */,
 				F683EF8C299E43D800C91974 /* Alamofire in Frameworks */,
 				F683EF9B299E5CF000C91974 /* Then in Frameworks */,
+				F62CC52429A49947006CF7D3 /* Toast in Frameworks */,
 				F683EF86299E439C00C91974 /* RxSwift in Frameworks */,
 				F683EF89299E43AC00C91974 /* SnapKit in Frameworks */,
 				F69FB82D29A0FFB300A500A0 /* RxDataSources in Frameworks */,
@@ -374,6 +382,7 @@
 		F69FB84129A3702600A500A0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F62CC52029A49604006CF7D3 /* MyInfoViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -381,6 +390,7 @@
 		F69FB84229A3702A00A500A0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F62CC51E29A495FA006CF7D3 /* MyInfoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -388,6 +398,7 @@
 		F69FB84329A3702C00A500A0 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				F62CC51C29A495F4006CF7D3 /* MyInfoCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -455,11 +466,11 @@
 			children = (
 				F6DFAC7E299BE52100C420A0 /* Common */,
 				F683EF6A299E318A00C91974 /* TabBar */,
+				F69FB83329A36E9D00A500A0 /* Login */,
+				F69FB84C29A3CC5100A500A0 /* SingUp */,
 				F683EF5D299E26DF00C91974 /* Home */,
 				F69FB83429A36F9C00A500A0 /* ImageDetail */,
 				F6DFAC75299BE3EE00C420A0 /* Search */,
-				F69FB83329A36E9D00A500A0 /* Login */,
-				F69FB84C29A3CC5100A500A0 /* SingUp */,
 				F69FB83229A36E8700A500A0 /* MyInfo */,
 			);
 			path = Presentation;
@@ -581,6 +592,7 @@
 				F683EF9A299E5CF000C91974 /* Then */,
 				F69FB82A29A0FFB300A500A0 /* Differentiator */,
 				F69FB82C29A0FFB300A500A0 /* RxDataSources */,
+				F62CC52329A49947006CF7D3 /* Toast */,
 			);
 			productName = Unsplash;
 			productReference = F6DFAC55299BE35B00C420A0 /* Unsplash.app */;
@@ -616,6 +628,7 @@
 				F683EF8A299E43D800C91974 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				F683EF99299E5CF000C91974 /* XCRemoteSwiftPackageReference "Then" */,
 				F69FB82929A0FFB300A500A0 /* XCRemoteSwiftPackageReference "RxDataSources" */,
+				F62CC52229A49947006CF7D3 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = F6DFAC56299BE35B00C420A0 /* Products */;
 			projectDirPath = "";
@@ -666,6 +679,7 @@
 				F683EF90299E55D400C91974 /* UnsplashRouter.swift in Sources */,
 				F62CC50F29A3DED1006CF7D3 /* TextField+Ex.swift in Sources */,
 				F69FB82829A0DA4100A500A0 /* NetworkError.swift in Sources */,
+				F62CC51F29A495FA006CF7D3 /* MyInfoViewModel.swift in Sources */,
 				F69FB83D29A36FDC00A500A0 /* ImageDetailViewController.swift in Sources */,
 				F6DFAC84299BE92700C420A0 /* SearchViewModel.swift in Sources */,
 				F62CC51729A47BAC006CF7D3 /* SignUpViewController.swift in Sources */,
@@ -674,6 +688,7 @@
 				F62CC50729A3D5EF006CF7D3 /* DefaultTextField+Rx.swift in Sources */,
 				F683EF7F299E426600C91974 /* SearchViewController.swift in Sources */,
 				F6DFAC59299BE35B00C420A0 /* AppDelegate.swift in Sources */,
+				F62CC52129A49604006CF7D3 /* MyInfoViewController.swift in Sources */,
 				F6DFAC6D299BE3A000C420A0 /* APIKey.swift in Sources */,
 				F69FB83B29A36FD500A500A0 /* ImageDetailViewModel.swift in Sources */,
 				F62CC51B29A48286006CF7D3 /* LabelStatus.swift in Sources */,
@@ -683,6 +698,7 @@
 				F683EF69299E302300C91974 /* TabBarPageCase.swift in Sources */,
 				F683EF94299E563A00C91974 /* APIManager.swift in Sources */,
 				F683EF67299E2F4900C91974 /* CoordinatorStyleCase.swift in Sources */,
+				F62CC51D29A495F4006CF7D3 /* MyInfoCoordinator.swift in Sources */,
 				F69FB84929A3CC4000A500A0 /* LoginViewController.swift in Sources */,
 				F683EFA1299E785B00C91974 /* CustomLayoutDelegate.swift in Sources */,
 				F62CC51129A3EA55006CF7D3 /* DefaultButton+Rx.swift in Sources */,
@@ -899,6 +915,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		F62CC52229A49947006CF7D3 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		F683EF80299E439C00C91974 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -942,6 +966,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F62CC52329A49947006CF7D3 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F62CC52229A49947006CF7D3 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
 		F683EF81299E439C00C91974 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F683EF80299E439C00C91974 /* XCRemoteSwiftPackageReference "RxSwift" */;

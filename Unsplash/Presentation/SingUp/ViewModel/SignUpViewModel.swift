@@ -17,20 +17,21 @@ final class SignUpViewModel: ViewModelType {
     private let passwordValid = BehaviorRelay<Bool>(value: false)
     private let passwordCheckValid = BehaviorRelay<Bool>(value: false)
     private let signUpValid = BehaviorRelay<Bool>(value: false)
+    private let makeToast = PublishRelay<String>()
     
     struct Input {
         let nicknameTextField: Signal<String>
         let emailTextField: Signal<String>
         let passwordTextField: Signal<String>
         let passwordCheckTextField: Signal<String>
-//        let emailValidLabel: AnyObserver<String?>
-//        let passwordValidLabel: Observable<String?>
+        let signUpButtonTapped: Signal<Void>
     }
     
     struct Output {
         let emailValid: Driver<Bool>
         let passwordCheckValid: Driver<Bool>
         let signUpValid: Driver<Bool>
+        let makeToast: Signal<String>
     }
     var disposeBag = DisposeBag()
     
@@ -72,11 +73,24 @@ final class SignUpViewModel: ViewModelType {
             }
             .disposed(by: disposeBag)
         
+        input.signUpButtonTapped
+            .withLatestFrom(signUpValid.asSignal(onErrorJustReturn: false))
+            .withUnretained(self)
+            .emit { vc, value in
+                if value == true {
+                    vc.coordinator?.popToLoginViewController()
+                } else {
+                    vc.makeToast.accept("Please Check Information")
+                }
+            }
+            .disposed(by: disposeBag)
+        
         
         return Output(
             emailValid: emailValid.asDriver(onErrorJustReturn: false),
             passwordCheckValid: passwordCheckValid.asDriver(onErrorJustReturn: false),
-            signUpValid: signUpValid.asDriver(onErrorJustReturn: false))
+            signUpValid: signUpValid.asDriver(onErrorJustReturn: false),
+            makeToast: makeToast.asSignal(onErrorJustReturn: ""))
     }
 }
 

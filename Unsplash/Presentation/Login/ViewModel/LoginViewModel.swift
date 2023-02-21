@@ -17,15 +17,18 @@ final class LoginViewModel: ViewModelType {
     private let isValid = BehaviorRelay<Bool>(value: false)
     private let emailValid = BehaviorRelay<Bool>(value: false)
     private let passwordValid = BehaviorRelay<Bool>(value: false)
+    private let makeToast = PublishRelay<String>()
     
     struct Input {
         let emailTextFiled: Signal<String>
         let passwordTextField: Signal<String>
         let signUpButtonTapped: Signal<Void>
+        let loginButtonTapped: Signal<Void>
     }
     
     struct Output {
         let isValid: Driver<Bool>
+        let makeToast: Signal<String>
     }
     
     var disposeBag = DisposeBag()
@@ -67,8 +70,17 @@ final class LoginViewModel: ViewModelType {
             }
             .disposed(by: disposeBag)
         
+        input.loginButtonTapped
+            .withLatestFrom(isValid.asDriver())
+            .withUnretained(self)
+            .emit { vc, value in
+                value ? vc.coordinator?.showTabBarViewController() : vc.makeToast.accept("Failed Login")
+            }
+            .disposed(by: disposeBag)
+        
         return Output(
-            isValid: isValid.asDriver(onErrorJustReturn: false))
+            isValid: isValid.asDriver(onErrorJustReturn: false),
+            makeToast: makeToast.asSignal(onErrorJustReturn: ""))
         
     }
     

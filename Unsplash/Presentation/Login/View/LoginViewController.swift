@@ -27,7 +27,8 @@ final class LoginViewController: UIViewController {
     private lazy var input = LoginViewModel.Input(
         emailTextFiled: emailTextField.rx.text.orEmpty.asSignal(onErrorJustReturn: ""),
         passwordTextField: passwordTextField.rx.text.orEmpty.asSignal(onErrorJustReturn: ""),
-        signUpButtonTapped: signUpButton.rx.tap.asSignal())
+        signUpButtonTapped: signUpButton.rx.tap.asSignal(),
+        loginButtonTapped: loginButton.rx.tap.asSignal())
     private lazy var output = viewModel.transform(input: input)
     private let viewModel: LoginViewModel
     private var disposeBag = DisposeBag()
@@ -93,9 +94,12 @@ final class LoginViewController: UIViewController {
             .drive(loginButton.rx.isValid)
             .disposed(by: disposeBag)
         
-            
-            
-            
+        output.makeToast
+            .withUnretained(self)
+            .emit { vc, value in
+                vc.view.makeToast(value, duration: 0.5, position: .top)
+            }
+            .disposed(by: disposeBag)
         
         
     }

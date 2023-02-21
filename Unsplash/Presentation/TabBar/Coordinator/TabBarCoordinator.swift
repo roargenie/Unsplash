@@ -79,11 +79,11 @@ final class TabBarCoordinator: Coordinator {
             searchCoordinator.delegate = self
             self.childCoordinators.append(searchCoordinator)
             searchCoordinator.start()
-        case .login:
-            let loginCoordinator = LoginCoordinator(tabNavigationController)
-            loginCoordinator.delegate = self
-            self.childCoordinators.append(loginCoordinator)
-            loginCoordinator.start()
+        case .myInfo:
+            let myInfoCoordinator = MyInfoCoordinator(tabNavigationController)
+            myInfoCoordinator.delegate = self
+            self.childCoordinators.append(myInfoCoordinator)
+            myInfoCoordinator.start()
         }
     }
     

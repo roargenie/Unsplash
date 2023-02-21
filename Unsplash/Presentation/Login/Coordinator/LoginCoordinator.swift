@@ -16,6 +16,7 @@ final class LoginCoordinator: Coordinator {
     
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
+        navigationController.setNavigationBarHidden(false, animated: false)
     }
     
     func start() {
@@ -32,5 +33,28 @@ final class LoginCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
+    func showTabBarViewController() {
+        let tabBarCoordinator = TabBarCoordinator(self.navigationController)
+        tabBarCoordinator.delegate = self
+        self.childCoordinators.append(tabBarCoordinator)
+        UserDefaults.standard.set(true, forKey: "isLogedIn")
+        tabBarCoordinator.start()
+    }
     
+    func popToLoginViewController() {
+        navigationController.popViewController(animated: true)
+    }
+    
+    
+    
+}
+
+extension LoginCoordinator: CoordinatorDelegate {
+    func didFinish(childCoordinator: Coordinator) {
+        self.childCoordinators = childCoordinators.filter { $0.type != childCoordinator.type }
+        if childCoordinator.type == .tabBar {
+            self.navigationController.viewControllers.removeAll()
+            self.delegate?.didFinish(childCoordinator: self)
+        }
+    }
 }

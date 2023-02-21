@@ -17,10 +17,15 @@ final class AppCoordinator: Coordinator {
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
         navigationController.setNavigationBarHidden(true, animated: false)
+//        UserDefaults.standard.set(false, forKey: "isLogedIn")
     }
     
     func start() {
-        showTabBarViewController()
+        if UserDefaults.standard.bool(forKey: "isLogedIn") == true {
+            showTabBarViewController()
+        } else {
+            showLoginViewController()
+        }
     }
     
     private func showTabBarViewController() {
@@ -28,6 +33,13 @@ final class AppCoordinator: Coordinator {
         tabBarCoordinator.delegate = self
         tabBarCoordinator.start()
         childCoordinators.append(tabBarCoordinator)
+    }
+    
+    private func showLoginViewController() {
+        let loginCoordinator = LoginCoordinator(self.navigationController)
+        loginCoordinator.delegate = self
+        loginCoordinator.start()
+        childCoordinators.append(loginCoordinator)
     }
     
 }
@@ -41,6 +53,8 @@ extension AppCoordinator: CoordinatorDelegate {
         switch childCoordinator.type {
         case .tabBar:
             self.showTabBarViewController()
+        case .login:
+            self.showLoginViewController()
         default:
             break
         }
