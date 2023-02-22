@@ -50,6 +50,7 @@ class SearchViewController: UIViewController {
         configureUI()
         setConstraints()
         bind()
+        configureDataSource()
     }
     
     //MARK: - SetUI
