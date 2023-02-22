@@ -94,9 +94,3 @@ final class SignUpViewModel: ViewModelType {
     }
 }
 
-extension SignUpViewModel {
-    
-    private func passwordCheck(with text: String) {
-        
-    }
-}

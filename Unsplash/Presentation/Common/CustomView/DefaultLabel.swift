@@ -34,7 +34,4 @@ final class DefaultLabel: UILabel {
         text = status.titleText
     }
     
-    
-    
-    
 }

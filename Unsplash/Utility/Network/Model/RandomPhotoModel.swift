@@ -27,7 +27,7 @@ struct RandomPhoto: Codable, RandomPhotoCollectionType {
 
 // MARK: - Urls
 
-struct Urls: Codable {
+struct Urls: Codable, Hashable {
     let raw, full, regular, small: String
     let thumb, smallS3: String
 
@@ -39,7 +39,7 @@ struct Urls: Codable {
 
 // MARK: - User
 
-struct User: Codable {
+struct User: Codable, Hashable {
     let id: String
     let username, name: String
     let profileImage: ProfileImage
@@ -57,6 +57,6 @@ struct User: Codable {
 
 // MARK: - ProfileImage
 
-struct ProfileImage: Codable {
+struct ProfileImage: Codable, Hashable {
     let small, medium, large: String
 }

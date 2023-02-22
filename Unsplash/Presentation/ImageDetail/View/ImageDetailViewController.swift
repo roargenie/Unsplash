@@ -107,8 +107,6 @@ final class ImageDetailViewController: UIViewController {
         
     }
 
-
-    
 }
 
     //MARK: - Extension
@@ -140,8 +138,6 @@ extension ImageDetailViewController {
             }
         }
     }
-    
-    
     
 }
 

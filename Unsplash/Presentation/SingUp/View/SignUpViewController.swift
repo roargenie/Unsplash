@@ -11,7 +11,7 @@ import RxSwift
 import SnapKit
 import Toast
 
-class SignUpViewController: UIViewController {
+final class SignUpViewController: UIViewController {
     
     //MARK: - UI
     
@@ -56,8 +56,6 @@ class SignUpViewController: UIViewController {
         setConstraints()
         bind()
     }
-    
-    
     
     
     //MARK: - SetUI
@@ -130,8 +128,6 @@ class SignUpViewController: UIViewController {
             .disposed(by: disposeBag)
         
     }
-    
-    
     
 }
 

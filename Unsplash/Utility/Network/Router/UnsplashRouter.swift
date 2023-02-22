@@ -11,7 +11,7 @@ import Alamofire
 enum UnsplashRouter {
     case randomPhoto
     case photoCollection
-    case searchPhoto
+    case searchPhoto(_ query: String)
     case searchUser
 }
 
@@ -47,8 +47,8 @@ extension UnsplashRouter: URLRequestConvertible {
             return ["count": "30"]
         case .photoCollection:
             return ["": ""]
-//        case .searchPhoto:
-//            return ["": ""]
+        case .searchPhoto(let query):
+            return ["query": query]
 //        case .searchUser:
 //            return ["": ""]
         default:
@@ -72,6 +72,8 @@ extension UnsplashRouter: URLRequestConvertible {
         
         switch self {
         case .randomPhoto:
+            request = try URLEncoding().encode(request, with: parameters)
+        case .searchPhoto:
             request = try URLEncoding().encode(request, with: parameters)
         default:
             return request

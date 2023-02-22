@@ -22,6 +22,9 @@
 		F62CC51F29A495FA006CF7D3 /* MyInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC51E29A495FA006CF7D3 /* MyInfoViewModel.swift */; };
 		F62CC52129A49604006CF7D3 /* MyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC52029A49604006CF7D3 /* MyInfoViewController.swift */; };
 		F62CC52429A49947006CF7D3 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = F62CC52329A49947006CF7D3 /* Toast */; };
+		F62CC52629A62B5B006CF7D3 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC52529A62B5B006CF7D3 /* SearchCollectionViewCell.swift */; };
+		F62CC52829A62C8E006CF7D3 /* CollectionViewLayout+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC52729A62C8E006CF7D3 /* CollectionViewLayout+Ex.swift */; };
+		F62CC52A29A631DB006CF7D3 /* SearchPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC52929A631DB006CF7D3 /* SearchPhotoModel.swift */; };
 		F683EF63299E26FC00C91974 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF62299E26FC00C91974 /* HomeViewController.swift */; };
 		F683EF65299E270000C91974 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF64299E270000C91974 /* HomeViewModel.swift */; };
 		F683EF67299E2F4900C91974 /* CoordinatorStyleCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF66299E2F4900C91974 /* CoordinatorStyleCase.swift */; };
@@ -85,6 +88,9 @@
 		F62CC51C29A495F4006CF7D3 /* MyInfoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoCoordinator.swift; sourceTree = "<group>"; };
 		F62CC51E29A495FA006CF7D3 /* MyInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewModel.swift; sourceTree = "<group>"; };
 		F62CC52029A49604006CF7D3 /* MyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoViewController.swift; sourceTree = "<group>"; };
+		F62CC52529A62B5B006CF7D3 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		F62CC52729A62C8E006CF7D3 /* CollectionViewLayout+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionViewLayout+Ex.swift"; sourceTree = "<group>"; };
+		F62CC52929A631DB006CF7D3 /* SearchPhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotoModel.swift; sourceTree = "<group>"; };
 		F683EF62299E26FC00C91974 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F683EF64299E270000C91974 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F683EF66299E2F4900C91974 /* CoordinatorStyleCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorStyleCase.swift; sourceTree = "<group>"; };
@@ -274,6 +280,7 @@
 			children = (
 				F683EF91299E55EB00C91974 /* RandomPhotoModel.swift */,
 				F69FB83029A35F2700A500A0 /* PhotoCollectionModel.swift */,
+				F62CC52929A631DB006CF7D3 /* SearchPhotoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -297,6 +304,7 @@
 		F683EFA7299E7E3500C91974 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				F62CC52529A62B5B006CF7D3 /* SearchCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -493,6 +501,7 @@
 			children = (
 				F62CC50829A3D62D006CF7D3 /* String+Ex.swift */,
 				F62CC50E29A3DED1006CF7D3 /* TextField+Ex.swift */,
+				F62CC52729A62C8E006CF7D3 /* CollectionViewLayout+Ex.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -667,6 +676,7 @@
 				F683EF7D299E3FE600C91974 /* SearchCoordinator.swift in Sources */,
 				F69FB84E29A3CF3E00A500A0 /* LoginCoordinator.swift in Sources */,
 				F683EF65299E270000C91974 /* HomeViewModel.swift in Sources */,
+				F62CC52629A62B5B006CF7D3 /* SearchCollectionViewCell.swift in Sources */,
 				F683EFA3299E792100C91974 /* CustomLayout.swift in Sources */,
 				F683EFAA299E7E6B00C91974 /* HomeCollectionViewCell.swift in Sources */,
 				F683EFA6299E7E0600C91974 /* MockData.swift in Sources */,
@@ -682,12 +692,14 @@
 				F62CC51F29A495FA006CF7D3 /* MyInfoViewModel.swift in Sources */,
 				F69FB83D29A36FDC00A500A0 /* ImageDetailViewController.swift in Sources */,
 				F6DFAC84299BE92700C420A0 /* SearchViewModel.swift in Sources */,
+				F62CC52A29A631DB006CF7D3 /* SearchPhotoModel.swift in Sources */,
 				F62CC51729A47BAC006CF7D3 /* SignUpViewController.swift in Sources */,
 				F69FB83129A35F2700A500A0 /* PhotoCollectionModel.swift in Sources */,
 				F683EF92299E55EB00C91974 /* RandomPhotoModel.swift in Sources */,
 				F62CC50729A3D5EF006CF7D3 /* DefaultTextField+Rx.swift in Sources */,
 				F683EF7F299E426600C91974 /* SearchViewController.swift in Sources */,
 				F6DFAC59299BE35B00C420A0 /* AppDelegate.swift in Sources */,
+				F62CC52829A62C8E006CF7D3 /* CollectionViewLayout+Ex.swift in Sources */,
 				F62CC52129A49604006CF7D3 /* MyInfoViewController.swift in Sources */,
 				F6DFAC6D299BE3A000C420A0 /* APIKey.swift in Sources */,
 				F69FB83B29A36FD500A500A0 /* ImageDetailViewModel.swift in Sources */,
@@ -773,7 +785,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -827,7 +839,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

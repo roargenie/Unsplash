@@ -44,34 +44,3 @@ final class PhotoCollectionsView: UIView {
     }
     
 }
-
-    //MARK: - Extension
-
-extension UICollectionViewLayout {
-    static func photoCollectionFlowLayout() -> UICollectionViewLayout {
-        
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalHeight(1.0))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .estimated(UIScreen.main.bounds.size.height / 3))
-        
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-        
-        let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 0
-        section.contentInsets = NSDirectionalEdgeInsets(
-            top: 4,
-            leading: 0,
-            bottom: 0,
-            trailing: 0)
-        
-        let layout = UICollectionViewCompositionalLayout(section: section)
-        
-        return layout
-        
-    }
-}

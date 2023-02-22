@@ -84,8 +84,6 @@ final class LoginViewController: UIViewController {
         }
     }
     
-    
-    
     //MARK: - Method
 
     private func bind() {

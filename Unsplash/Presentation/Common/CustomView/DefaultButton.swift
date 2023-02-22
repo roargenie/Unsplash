@@ -35,8 +35,6 @@ final class DefaultButton: UIButton {
     }
 
     func setValidStatus(status: ButtonStatus) {
-//        layer.borderWidth = 1
-//        tintColor = status.backgroundColor
         backgroundColor = status.backgroundColor
         setTitleColor(status.titleColor, for: .normal)
     }
