@@ -10,7 +10,7 @@ import RxCocoa
 import RxSwift
 import SnapKit
 
-class SearchViewController: UIViewController {
+final class SearchViewController: UIViewController {
     
     //MARK: - UI
     
@@ -22,7 +22,6 @@ class SearchViewController: UIViewController {
     }
     
     //MARK: - Properties
-    
     
     private lazy var input = SearchViewModel.Input(
         searchBar: searchBar.rx.text.orEmpty.asSignal(onErrorJustReturn: ""))
@@ -73,6 +72,8 @@ class SearchViewController: UIViewController {
         }
     }
     
+    //MARK: - Method
+
     private func bind() {
         
         output.searchPhotoList
@@ -90,19 +91,13 @@ class SearchViewController: UIViewController {
     
 }
 
+    //MARK: - Extension
+
 extension SearchViewController {
     
     private func configureDataSource() {
         let cellregistration = UICollectionView.CellRegistration<SearchCollectionViewCell, SearchResult> { cell, indexPath, itemIdentifier in
-//            cell.setUpCell(item: itemIdentifier)
-            DispatchQueue.global().async {
-                let url = URL(string: itemIdentifier.urls.regular)!
-                let data = try? Data(contentsOf: url)
-                
-                DispatchQueue.main.async {
-                    cell.imageView.image = UIImage(data: data!)
-                }
-            }
+            cell.setUpCell(item: itemIdentifier)
         }
         
         dataSource = UICollectionViewDiffableDataSource(
@@ -114,7 +109,5 @@ extension SearchViewController {
                 item: itemIdentifier)
             return cell
         })
-        
-        
     }
 }

@@ -26,5 +26,21 @@ final class MyInfoCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
+//    func showLoginViewController() {
+//        let loginCoordinator = LoginCoordinator(navigationController)
+//        loginCoordinator.delegate = self
+//        UserDefaults.standard.set(false, forKey: "isLogedIn")
+//        loginCoordinator.start()
+//    }
     
 }
+
+//extension MyInfoCoordinator: CoordinatorDelegate {
+//    func didFinish(childCoordinator: Coordinator) {
+//        self.childCoordinators = childCoordinators.filter { $0.type != childCoordinator.type }
+//        if childCoordinator.type == .login {
+//            self.navigationController.viewControllers.removeAll()
+//            self.delegate?.didFinish(childCoordinator: self)
+//        }
+//    }
+//}

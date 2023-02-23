@@ -45,6 +45,9 @@ final class LoginCoordinator: Coordinator {
         navigationController.popViewController(animated: true)
     }
     
+    func finish() {
+        delegate?.didFinish(childCoordinator: self)
+    }
     
     
 }

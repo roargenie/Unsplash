@@ -16,7 +16,7 @@ final class ImageDetailViewModel: ViewModelType {
     var selectedCollectionPhoto = BehaviorRelay<[PhotoCollection]>(value: [])
     
     struct Input {
-        
+        let likeButtonTap: Signal<Void>
     }
     
     struct Output {
@@ -31,6 +31,12 @@ final class ImageDetailViewModel: ViewModelType {
     
     func transform(input: Input) -> Output {
         
+        input.likeButtonTap
+            .withUnretained(self)
+            .emit { vc, _ in
+                print("===========탭")
+            }
+            .disposed(by: disposeBag)
         
         return Output(
             selectedRandomPhoto: selectedRandomPhoto.asDriver(onErrorJustReturn: []),

@@ -99,8 +99,8 @@ final class HomeViewController: UIViewController {
     private func configureUI() {
         navigationItem.backButtonTitle = ""
         navigationItem.title = "Home"
-        self.view.backgroundColor = .black
-        [indicatorView, scrollView].forEach { self.view.addSubview($0) }
+        view.backgroundColor = .black
+        [indicatorView, scrollView].forEach { view.addSubview($0) }
     }
     
     private func setConstraints() {

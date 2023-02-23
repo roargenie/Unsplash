@@ -93,7 +93,7 @@ extension TabBarCoordinator: CoordinatorDelegate {
     
     func didFinish(childCoordinator: Coordinator) {
         self.childCoordinators = childCoordinators.filter { $0.type != childCoordinator.type }
-        if childCoordinator.type == .search {
+        if childCoordinator.type == .myInfo {
             self.navigationController.viewControllers.removeAll()
             self.delegate?.didFinish(childCoordinator: self)
         }

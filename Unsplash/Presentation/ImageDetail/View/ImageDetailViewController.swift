@@ -27,10 +27,18 @@ final class ImageDetailViewController: UIViewController {
         $0.maximumZoomScale = 2.0
     }
     
+    private let likeButton: UIButton = UIButton().then {
+        $0.setImage(UIImage(systemName: "heart"), for: .normal)
+        $0.backgroundColor = .white
+        $0.layer.cornerRadius = 25
+        $0.tintColor = .black
+    }
+    
     
     //MARK: - Properties
     
-    private lazy var input = ImageDetailViewModel.Input()
+    private lazy var input = ImageDetailViewModel.Input(
+        likeButtonTap: likeButton.rx.tap.asSignal())
     private lazy var output = viewModel.transform(input: input)
     let viewModel: ImageDetailViewModel
     private var disposeBag = DisposeBag()
@@ -60,6 +68,7 @@ final class ImageDetailViewController: UIViewController {
     private func configureUI() {
         scrollView.delegate = self
         view.addSubview(scrollView)
+        view.addSubview(likeButton)
     }
     
     private func setConstraints() {
@@ -70,6 +79,11 @@ final class ImageDetailViewController: UIViewController {
         }
         scrollView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+        likeButton.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(10)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(30)
+            make.width.height.equalTo(50)
         }
     }
     

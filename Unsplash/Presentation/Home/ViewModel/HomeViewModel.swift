@@ -72,7 +72,7 @@ final class HomeViewModel: ViewModelType {
             case .success(let value):
                 guard let value = value else { return }
                 self.randomPhotoList.accept(value)
-                dump(value, name: "🟢🟢🟢🟢🟢")
+//                dump(value, name: "🟢🟢🟢🟢🟢")
             case .failure(let error):
                 print(error.localizedDescription)
             }

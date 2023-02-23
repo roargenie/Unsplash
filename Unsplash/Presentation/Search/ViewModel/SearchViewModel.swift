@@ -61,11 +61,5 @@ final class SearchViewModel: ViewModelType {
         }
     }
     
-    
-    
-    
-    
-    
-    
-    
+     
 }

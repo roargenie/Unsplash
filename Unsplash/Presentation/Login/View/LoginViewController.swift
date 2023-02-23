@@ -102,7 +102,9 @@ final class LoginViewController: UIViewController {
         
     }
     
-    
+    deinit {
+        print("해제==========", self)
+    }
     
 }
 

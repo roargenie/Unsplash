@@ -14,7 +14,8 @@ final class MyInfoViewModel: ViewModelType {
     private weak var coordinator: MyInfoCoordinator?
     
     struct Input {
-        
+        let testButtonTap: Signal<Void>
+        let rightBarButtonTap: Signal<Void>
     }
     
     struct Output {
@@ -27,6 +28,21 @@ final class MyInfoViewModel: ViewModelType {
     }
     
     func transform(input: Input) -> Output {
+        
+        input.testButtonTap
+            .withUnretained(self)
+            .emit { vc, _ in
+                print("clicked")
+//                vc.coordinator?.showLoginViewController()
+            }
+            .disposed(by: disposeBag)
+        
+        input.rightBarButtonTap
+            .withUnretained(self)
+            .emit { vc, _ in
+                print("==============")
+            }
+            .disposed(by: disposeBag)
         
         return Output()
     }

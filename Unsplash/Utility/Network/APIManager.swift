@@ -22,7 +22,7 @@ final class APIManager {
         AF.request(router)
             .responseDecodable(of: object) { response in
                 guard let statusCode = response.response?.statusCode else { return }
-                print("🔵", statusCode)
+//                print("🔵", statusCode)
                 switch response.result {
                 case .success(let value):
                     completion(.success(value))
