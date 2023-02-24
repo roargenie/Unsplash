@@ -10,31 +10,28 @@ import RxCocoa
 import RxSwift
 import SnapKit
 
-class MyInfoViewController: UIViewController {
+final class MyInfoViewController: UIViewController {
     
     //MARK: - UI
     
-//    private var profileImageView: UIImageView = UIImageView().then {
-//        $0.contentMode = .scaleAspectFit
-//        $0.layer.cornerRadius = 26
-//        $0.backgroundColor = .orange
-//    }
-//    private var nickNameLabel: UILabel = UILabel()
-//    private var tableView: UITableView = UITableView()
+    private lazy var tableView: UITableView = UITableView().then {
+        $0.register(MyInfoTableViewCell.self, forCellReuseIdentifier: MyInfoTableViewCell.identifier)
+        $0.register(CustomHeaderView.self, forHeaderFooterViewReuseIdentifier: CustomHeaderView.identifier)
+        $0.tableHeaderView = MyInfoTableViewHeader(frame: CGRect(x: 0, y: 0, width: view.frame.size.width , height: 200))
+        $0.separatorInset = .zero
+//        $0.separatorStyle = .none
+        $0.keyboardDismissMode = .onDrag
+        $0.backgroundColor = .systemBackground
+//        $0.estimatedRowHeight = UITableView.automaticDimension
+    }
+    
     private let rightBarButtonItem: UIBarButtonItem = UIBarButtonItem().then {
-        $0.image = UIImage(systemName: "ellipsis")
+        $0.image = UIImage(systemName: "gearshape")
         $0.style = .plain
     }
     
-    private var testButtond = DefaultButton(title: "TestButton")
-    
-    
     //MARK: - Properties
-
-    private lazy var input = MyInfoViewModel.Input(
-        testButtonTap: testButtond.rx.tap.asSignal(),
-        rightBarButtonTap: rightBarButtonItem.rx.tap.asSignal())
-    private lazy var output = viewModel.transform(input: input)
+    
     private let viewModel: MyInfoViewModel
     private var disposeBag = DisposeBag()
     
@@ -51,7 +48,6 @@ class MyInfoViewController: UIViewController {
     
     //MARK: - LifeCycle
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .black
@@ -61,22 +57,20 @@ class MyInfoViewController: UIViewController {
     }
     
     
-    
-    
     //MARK: - SetUI
 
     private func configureUI() {
         navigationItem.rightBarButtonItem = rightBarButtonItem
         navigationItem.title = "My Page"
-        view.addSubview(testButtond)
-        
+        navigationItem.backButtonTitle = ""
+        view.addSubview(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     private func setConstraints() {
-        testButtond.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.horizontalEdges.equalToSuperview().inset(20)
-            make.height.equalTo(44)
+        tableView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
@@ -84,14 +78,42 @@ class MyInfoViewController: UIViewController {
     //MARK: - Method
     
     private func bind() {
+        let input = MyInfoViewModel.Input(
+            rightBarButtonTap: rightBarButtonItem.rx.tap.asSignal())
+        let output = viewModel.transform(input: input)
         
-//        testButtond.rx.tap
-//            .withUnretained(self)
-//            .bind { vc, _ in
-//                print("===============✅")
-//
-//            }
-//            .disposed(by: disposeBag)
+        
+        
+        
+    }
+    
+}
+
+extension MyInfoViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MyInfoTableViewCell.identifier, for: indexPath) as? MyInfoTableViewCell else { return UITableViewCell() }
+        cell.photoImageView.backgroundColor = .orange
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: CustomHeaderView.identifier) as? CustomHeaderView else { return UIView() }
+        
+        return view
     }
     
     

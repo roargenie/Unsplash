@@ -16,7 +16,6 @@ final class MyInfoCoordinator: Coordinator {
     
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
-        navigationController.setNavigationBarHidden(false, animated: false)
     }
     
     func start() {
@@ -26,21 +25,36 @@ final class MyInfoCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-//    func showLoginViewController() {
-//        let loginCoordinator = LoginCoordinator(navigationController)
-//        loginCoordinator.delegate = self
-//        UserDefaults.standard.set(false, forKey: "isLogedIn")
-//        loginCoordinator.start()
-//    }
+    func showLoginViewController() {
+        let loginCoordinator = LoginCoordinator(navigationController)
+        loginCoordinator.delegate = self
+        self.childCoordinators.append(loginCoordinator)
+        UserDefaults.standard.set(false, forKey: "isLogedIn")
+        loginCoordinator.start()
+//        finish()
+//        didFinish(childCoordinator: self)
+    }
+    
+    func showSettingViewController() {
+        let settingViewController = SettingViewController(
+            viewModel: SettingViewModel(
+                coordinator: self))
+        navigationController.pushViewController(settingViewController, animated: true)
+    }
+    
+    func finish() {
+        delegate?.didFinish(childCoordinator: self)
+    }
+    
     
 }
 
-//extension MyInfoCoordinator: CoordinatorDelegate {
-//    func didFinish(childCoordinator: Coordinator) {
-//        self.childCoordinators = childCoordinators.filter { $0.type != childCoordinator.type }
-//        if childCoordinator.type == .login {
-//            self.navigationController.viewControllers.removeAll()
-//            self.delegate?.didFinish(childCoordinator: self)
-//        }
-//    }
-//}
+extension MyInfoCoordinator: CoordinatorDelegate {
+    func didFinish(childCoordinator: Coordinator) {
+        self.childCoordinators = childCoordinators.filter { $0.type != childCoordinator.type }
+        if childCoordinator.type == .myInfo {
+            self.navigationController.viewControllers.removeAll()
+            self.delegate?.didFinish(childCoordinator: self)
+        }
+    }
+}

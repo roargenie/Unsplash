@@ -23,7 +23,10 @@ final class LoginCoordinator: Coordinator {
         let vc = LoginViewController(
             viewModel: LoginViewModel(
                 coordinator: self))
-        navigationController.pushViewController(vc, animated: true)
+        vc.hidesBottomBarWhenPushed = true
+        changeAnimation()
+        navigationController.viewControllers = [vc]
+//        navigationController.pushViewController(vc, animated: true)
     }
     
     func showSignupViewController() {
@@ -35,7 +38,7 @@ final class LoginCoordinator: Coordinator {
     
     func showTabBarViewController() {
         let tabBarCoordinator = TabBarCoordinator(self.navigationController)
-        tabBarCoordinator.delegate = self
+//        tabBarCoordinator.delegate = self
         self.childCoordinators.append(tabBarCoordinator)
         UserDefaults.standard.set(true, forKey: "isLogedIn")
         tabBarCoordinator.start()
@@ -48,16 +51,14 @@ final class LoginCoordinator: Coordinator {
     func finish() {
         delegate?.didFinish(childCoordinator: self)
     }
-    
-    
 }
 
-extension LoginCoordinator: CoordinatorDelegate {
-    func didFinish(childCoordinator: Coordinator) {
-        self.childCoordinators = childCoordinators.filter { $0.type != childCoordinator.type }
-        if childCoordinator.type == .tabBar {
-            self.navigationController.viewControllers.removeAll()
-            self.delegate?.didFinish(childCoordinator: self)
-        }
-    }
-}
+//extension LoginCoordinator: CoordinatorDelegate {
+//    func didFinish(childCoordinator: Coordinator) {
+//        self.childCoordinators = childCoordinators.filter { $0.type != childCoordinator.type }
+//        if childCoordinator.type == .login {
+//            self.navigationController.viewControllers.removeAll()
+//            self.delegate?.didFinish(childCoordinator: self)
+//        }
+//    }
+//}

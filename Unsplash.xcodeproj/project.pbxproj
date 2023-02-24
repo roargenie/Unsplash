@@ -25,6 +25,11 @@
 		F62CC52629A62B5B006CF7D3 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC52529A62B5B006CF7D3 /* SearchCollectionViewCell.swift */; };
 		F62CC52829A62C8E006CF7D3 /* CollectionViewLayout+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC52729A62C8E006CF7D3 /* CollectionViewLayout+Ex.swift */; };
 		F62CC52A29A631DB006CF7D3 /* SearchPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62CC52929A631DB006CF7D3 /* SearchPhotoModel.swift */; };
+		F6387C1729A7BAC00091668A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6387C1629A7BAC00091668A /* SettingViewController.swift */; };
+		F6387C1929A7BAC60091668A /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6387C1829A7BAC60091668A /* SettingViewModel.swift */; };
+		F6387C1B29A8F2180091668A /* MyInfoTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6387C1A29A8F2180091668A /* MyInfoTableViewHeader.swift */; };
+		F6387C1E29A8F3AC0091668A /* MyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6387C1D29A8F3AC0091668A /* MyInfoTableViewCell.swift */; };
+		F6387C2029A8F87F0091668A /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6387C1F29A8F87F0091668A /* CustomHeaderView.swift */; };
 		F683EF63299E26FC00C91974 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF62299E26FC00C91974 /* HomeViewController.swift */; };
 		F683EF65299E270000C91974 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF64299E270000C91974 /* HomeViewModel.swift */; };
 		F683EF67299E2F4900C91974 /* CoordinatorStyleCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF66299E2F4900C91974 /* CoordinatorStyleCase.swift */; };
@@ -91,6 +96,11 @@
 		F62CC52529A62B5B006CF7D3 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		F62CC52729A62C8E006CF7D3 /* CollectionViewLayout+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionViewLayout+Ex.swift"; sourceTree = "<group>"; };
 		F62CC52929A631DB006CF7D3 /* SearchPhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPhotoModel.swift; sourceTree = "<group>"; };
+		F6387C1629A7BAC00091668A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		F6387C1829A7BAC60091668A /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		F6387C1A29A8F2180091668A /* MyInfoTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoTableViewHeader.swift; sourceTree = "<group>"; };
+		F6387C1D29A8F3AC0091668A /* MyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoTableViewCell.swift; sourceTree = "<group>"; };
+		F6387C1F29A8F87F0091668A /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
 		F683EF62299E26FC00C91974 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F683EF64299E270000C91974 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F683EF66299E2F4900C91974 /* CoordinatorStyleCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorStyleCase.swift; sourceTree = "<group>"; };
@@ -176,6 +186,39 @@
 				F62CC51429A47BA3006CF7D3 /* SignUpViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F6387C1329A7BAA10091668A /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				F6387C1529A7BAB70091668A /* ViewModel */,
+				F6387C1429A7BAB50091668A /* View */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		F6387C1429A7BAB50091668A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F6387C1629A7BAC00091668A /* SettingViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F6387C1529A7BAB70091668A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F6387C1829A7BAC60091668A /* SettingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F6387C1C29A8F3A00091668A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F6387C1D29A8F3AC0091668A /* MyInfoTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		F683EF5D299E26DF00C91974 /* Home */ = {
@@ -390,6 +433,9 @@
 		F69FB84129A3702600A500A0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F6387C1C29A8F3A00091668A /* Cell */,
+				F6387C1A29A8F2180091668A /* MyInfoTableViewHeader.swift */,
+				F6387C1F29A8F87F0091668A /* CustomHeaderView.swift */,
 				F62CC52029A49604006CF7D3 /* MyInfoViewController.swift */,
 			);
 			path = View;
@@ -480,6 +526,7 @@
 				F69FB83429A36F9C00A500A0 /* ImageDetail */,
 				F6DFAC75299BE3EE00C420A0 /* Search */,
 				F69FB83229A36E8700A500A0 /* MyInfo */,
+				F6387C1329A7BAA10091668A /* Setting */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -673,6 +720,7 @@
 				F683EF72299E31D200C91974 /* CoordinatorDelegate.swift in Sources */,
 				F69FB84729A3C1DD00A500A0 /* DecodingModelType.swift in Sources */,
 				F62CC50429A3D544006CF7D3 /* DefaultTextField.swift in Sources */,
+				F6387C1B29A8F2180091668A /* MyInfoTableViewHeader.swift in Sources */,
 				F683EF7D299E3FE600C91974 /* SearchCoordinator.swift in Sources */,
 				F69FB84E29A3CF3E00A500A0 /* LoginCoordinator.swift in Sources */,
 				F683EF65299E270000C91974 /* HomeViewModel.swift in Sources */,
@@ -688,12 +736,14 @@
 				F683EF63299E26FC00C91974 /* HomeViewController.swift in Sources */,
 				F683EF90299E55D400C91974 /* UnsplashRouter.swift in Sources */,
 				F62CC50F29A3DED1006CF7D3 /* TextField+Ex.swift in Sources */,
+				F6387C1729A7BAC00091668A /* SettingViewController.swift in Sources */,
 				F69FB82829A0DA4100A500A0 /* NetworkError.swift in Sources */,
 				F62CC51F29A495FA006CF7D3 /* MyInfoViewModel.swift in Sources */,
 				F69FB83D29A36FDC00A500A0 /* ImageDetailViewController.swift in Sources */,
 				F6DFAC84299BE92700C420A0 /* SearchViewModel.swift in Sources */,
 				F62CC52A29A631DB006CF7D3 /* SearchPhotoModel.swift in Sources */,
 				F62CC51729A47BAC006CF7D3 /* SignUpViewController.swift in Sources */,
+				F6387C1929A7BAC60091668A /* SettingViewModel.swift in Sources */,
 				F69FB83129A35F2700A500A0 /* PhotoCollectionModel.swift in Sources */,
 				F683EF92299E55EB00C91974 /* RandomPhotoModel.swift in Sources */,
 				F62CC50729A3D5EF006CF7D3 /* DefaultTextField+Rx.swift in Sources */,
@@ -714,8 +764,10 @@
 				F69FB84929A3CC4000A500A0 /* LoginViewController.swift in Sources */,
 				F683EFA1299E785B00C91974 /* CustomLayoutDelegate.swift in Sources */,
 				F62CC51129A3EA55006CF7D3 /* DefaultButton+Rx.swift in Sources */,
+				F6387C2029A8F87F0091668A /* CustomHeaderView.swift in Sources */,
 				F62CC50D29A3D6B2006CF7D3 /* ButtonStatus.swift in Sources */,
 				F683EF74299E31D900C91974 /* ViewModelType.swift in Sources */,
+				F6387C1E29A8F3AC0091668A /* MyInfoTableViewCell.swift in Sources */,
 				F62CC51529A47BA3006CF7D3 /* SignUpViewModel.swift in Sources */,
 				F69FB84529A3894F00A500A0 /* AppAppearance.swift in Sources */,
 			);

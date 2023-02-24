@@ -1,20 +1,20 @@
 //
-//  MyInfoViewModel.swift
+//  SettingViewModel.swift
 //  Unsplash
 //
-//  Created by 이명진 on 2023/02/21.
+//  Created by 이명진 on 2023/02/24.
 //
 
 import Foundation
 import RxCocoa
 import RxSwift
 
-final class MyInfoViewModel: ViewModelType {
+final class SettingViewModel: ViewModelType {
     
     private weak var coordinator: MyInfoCoordinator?
     
     struct Input {
-        let rightBarButtonTap: Signal<Void>
+        let logOutButtonTap: Signal<Void>
     }
     
     struct Output {
@@ -28,12 +28,14 @@ final class MyInfoViewModel: ViewModelType {
     
     func transform(input: Input) -> Output {
         
-        input.rightBarButtonTap
+        input.logOutButtonTap
             .withUnretained(self)
             .emit { vc, _ in
-                vc.coordinator?.showSettingViewController()
+                vc.coordinator?.showLoginViewController()
             }
             .disposed(by: disposeBag)
+        
+        
         
         return Output()
     }
