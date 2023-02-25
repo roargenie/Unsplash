@@ -27,12 +27,7 @@ final class ImageDetailViewController: UIViewController {
         $0.maximumZoomScale = 2.0
     }
     
-    private let likeButton: UIButton = UIButton().then {
-        $0.setImage(UIImage(systemName: "heart"), for: .normal)
-        $0.backgroundColor = .white
-        $0.layer.cornerRadius = 25
-        $0.tintColor = .black
-    }
+    private let likeButton = LikeButton(image: UIImage(systemName: "heart.fill")!)
     
     
     //MARK: - Properties
@@ -117,6 +112,10 @@ final class ImageDetailViewController: UIViewController {
                     self?.setImage(item: image)
                 }
             }
+            .disposed(by: disposeBag)
+        
+        output.likeButtonStatus
+            .drive(likeButton.rx.isSelected)
             .disposed(by: disposeBag)
         
     }

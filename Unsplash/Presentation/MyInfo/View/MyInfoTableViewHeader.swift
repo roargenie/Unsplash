@@ -17,8 +17,10 @@ final class MyInfoTableViewHeader: UIView {
     
     let nicknameLabel: UILabel = UILabel().then {
         $0.textColor = .white
+        $0.textAlignment = .center
         $0.font = .systemFont(ofSize: 24, weight: .heavy)
         $0.text = "rOar"
+        $0.backgroundColor = .brown
     }
     
     override init(frame: CGRect) {

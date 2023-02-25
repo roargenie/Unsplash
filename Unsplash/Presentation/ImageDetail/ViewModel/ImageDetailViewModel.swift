@@ -12,6 +12,7 @@ import RxSwift
 final class ImageDetailViewModel: ViewModelType {
     
     private weak var coordinator: HomeCoordinator?
+    private var likeButtonStatus = BehaviorRelay<Bool>(value: false)
     var selectedRandomPhoto = BehaviorRelay<[RandomPhoto]>(value: [])
     var selectedCollectionPhoto = BehaviorRelay<[PhotoCollection]>(value: [])
     
@@ -22,6 +23,7 @@ final class ImageDetailViewModel: ViewModelType {
     struct Output {
         let selectedRandomPhoto: Driver<[RandomPhoto]>
         let selectedCollectionPhoto: Driver<[PhotoCollection]>
+        let likeButtonStatus: Driver<Bool>
     }
     var disposeBag = DisposeBag()
     
@@ -32,15 +34,18 @@ final class ImageDetailViewModel: ViewModelType {
     func transform(input: Input) -> Output {
         
         input.likeButtonTap
+            .scan(false) { lastState, newState in !lastState }
             .withUnretained(self)
-            .emit { vc, _ in
-                print("===========탭")
+            .emit { vc, value in
+                vc.likeButtonStatus.accept(value)
             }
             .disposed(by: disposeBag)
+            
         
         return Output(
             selectedRandomPhoto: selectedRandomPhoto.asDriver(onErrorJustReturn: []),
-            selectedCollectionPhoto: selectedCollectionPhoto.asDriver(onErrorJustReturn: []))
+            selectedCollectionPhoto: selectedCollectionPhoto.asDriver(onErrorJustReturn: []),
+            likeButtonStatus: likeButtonStatus.asDriver(onErrorJustReturn: false))
     }
     
 }

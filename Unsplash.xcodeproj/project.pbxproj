@@ -30,6 +30,8 @@
 		F6387C1B29A8F2180091668A /* MyInfoTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6387C1A29A8F2180091668A /* MyInfoTableViewHeader.swift */; };
 		F6387C1E29A8F3AC0091668A /* MyInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6387C1D29A8F3AC0091668A /* MyInfoTableViewCell.swift */; };
 		F6387C2029A8F87F0091668A /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6387C1F29A8F87F0091668A /* CustomHeaderView.swift */; };
+		F6387C2229AA14020091668A /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6387C2129AA14020091668A /* LikeButton.swift */; };
+		F6387C2429AA14120091668A /* LikeButtonStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6387C2329AA14120091668A /* LikeButtonStatus.swift */; };
 		F683EF63299E26FC00C91974 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF62299E26FC00C91974 /* HomeViewController.swift */; };
 		F683EF65299E270000C91974 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF64299E270000C91974 /* HomeViewModel.swift */; };
 		F683EF67299E2F4900C91974 /* CoordinatorStyleCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F683EF66299E2F4900C91974 /* CoordinatorStyleCase.swift */; };
@@ -101,6 +103,8 @@
 		F6387C1A29A8F2180091668A /* MyInfoTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoTableViewHeader.swift; sourceTree = "<group>"; };
 		F6387C1D29A8F3AC0091668A /* MyInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoTableViewCell.swift; sourceTree = "<group>"; };
 		F6387C1F29A8F87F0091668A /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
+		F6387C2129AA14020091668A /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		F6387C2329AA14120091668A /* LikeButtonStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButtonStatus.swift; sourceTree = "<group>"; };
 		F683EF62299E26FC00C91974 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F683EF64299E270000C91974 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F683EF66299E2F4900C91974 /* CoordinatorStyleCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorStyleCase.swift; sourceTree = "<group>"; };
@@ -597,6 +601,7 @@
 				F683EF66299E2F4900C91974 /* CoordinatorStyleCase.swift */,
 				F683EF68299E302300C91974 /* TabBarPageCase.swift */,
 				F62CC50C29A3D6B2006CF7D3 /* ButtonStatus.swift */,
+				F6387C2329AA14120091668A /* LikeButtonStatus.swift */,
 				F62CC51A29A48286006CF7D3 /* LabelStatus.swift */,
 			);
 			path = Constant;
@@ -618,6 +623,7 @@
 			children = (
 				F62CC50329A3D544006CF7D3 /* DefaultTextField.swift */,
 				F62CC50A29A3D697006CF7D3 /* DefaultButton.swift */,
+				F6387C2129AA14020091668A /* LikeButton.swift */,
 				F62CC51829A4826D006CF7D3 /* DefaultLabel.swift */,
 			);
 			path = CustomView;
@@ -750,6 +756,7 @@
 				F683EF7F299E426600C91974 /* SearchViewController.swift in Sources */,
 				F6DFAC59299BE35B00C420A0 /* AppDelegate.swift in Sources */,
 				F62CC52829A62C8E006CF7D3 /* CollectionViewLayout+Ex.swift in Sources */,
+				F6387C2429AA14120091668A /* LikeButtonStatus.swift in Sources */,
 				F62CC52129A49604006CF7D3 /* MyInfoViewController.swift in Sources */,
 				F6DFAC6D299BE3A000C420A0 /* APIKey.swift in Sources */,
 				F69FB83B29A36FD500A500A0 /* ImageDetailViewModel.swift in Sources */,
@@ -758,6 +765,7 @@
 				F6DFAC5B299BE35B00C420A0 /* SceneDelegate.swift in Sources */,
 				F683EF9F299E61C400C91974 /* PhotoCollectionsView.swift in Sources */,
 				F683EF69299E302300C91974 /* TabBarPageCase.swift in Sources */,
+				F6387C2229AA14020091668A /* LikeButton.swift in Sources */,
 				F683EF94299E563A00C91974 /* APIManager.swift in Sources */,
 				F683EF67299E2F4900C91974 /* CoordinatorStyleCase.swift in Sources */,
 				F62CC51D29A495F4006CF7D3 /* MyInfoCoordinator.swift in Sources */,
