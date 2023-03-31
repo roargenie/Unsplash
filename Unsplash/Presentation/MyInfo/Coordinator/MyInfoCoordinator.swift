@@ -32,7 +32,7 @@ final class MyInfoCoordinator: Coordinator {
         UserDefaults.standard.set(false, forKey: "isLogedIn")
         loginCoordinator.start()
 //        finish()
-//        didFinish(childCoordinator: self)
+        didFinish(childCoordinator: self)
     }
     
     func showSettingViewController() {
