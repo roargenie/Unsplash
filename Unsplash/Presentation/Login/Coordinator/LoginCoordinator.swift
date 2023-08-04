@@ -7,7 +7,12 @@
 
 import UIKit
 
-final class LoginCoordinator: Coordinator {
+protocol LoginCoordinatorProtocol: Coordinator {
+    func showLoginViewController()
+    func showSignupViewController()
+}
+
+final class LoginCoordinator: LoginCoordinatorProtocol {
     
     weak var delegate: CoordinatorDelegate?
     var childCoordinators = [Coordinator]()
@@ -20,13 +25,16 @@ final class LoginCoordinator: Coordinator {
     }
     
     func start() {
+        showLoginViewController()
+    }
+    
+    func showLoginViewController() {
         let vc = LoginViewController(
             viewModel: LoginViewModel(
                 coordinator: self))
         vc.hidesBottomBarWhenPushed = true
         changeAnimation()
         navigationController.viewControllers = [vc]
-//        navigationController.pushViewController(vc, animated: true)
     }
     
     func showSignupViewController() {
@@ -36,29 +44,31 @@ final class LoginCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func showTabBarViewController() {
-        let tabBarCoordinator = TabBarCoordinator(self.navigationController)
-//        tabBarCoordinator.delegate = self
-        self.childCoordinators.append(tabBarCoordinator)
+    func showTabBarFlow() {
         UserDefaults.standard.set(true, forKey: "isLogedIn")
+        let tabBarCoordinator = TabBarCoordinator(self.navigationController)
+        tabBarCoordinator.delegate = self
+        childCoordinators.append(tabBarCoordinator)
         tabBarCoordinator.start()
+        self.finish()
     }
     
     func popToLoginViewController() {
         navigationController.popViewController(animated: true)
     }
     
-    func finish() {
-        delegate?.didFinish(childCoordinator: self)
+    deinit {
+        print("Login Coordinator deinit")
     }
+    
 }
 
-//extension LoginCoordinator: CoordinatorDelegate {
-//    func didFinish(childCoordinator: Coordinator) {
-//        self.childCoordinators = childCoordinators.filter { $0.type != childCoordinator.type }
-//        if childCoordinator.type == .login {
-//            self.navigationController.viewControllers.removeAll()
-//            self.delegate?.didFinish(childCoordinator: self)
-//        }
-//    }
-//}
+extension LoginCoordinator: CoordinatorDelegate {
+    func didFinish(childCoordinator: Coordinator) {
+        print("==========LoginCoordinator didFinish")
+        self.childCoordinators = childCoordinators.filter { $0.type != childCoordinator.type }
+        print(childCoordinators, childCoordinator)
+//        self.childCoordinators.removeAll()
+//        self.delegate?.didFinish(childCoordinator: self)
+    }
+}

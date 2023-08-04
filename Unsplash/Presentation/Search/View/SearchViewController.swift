@@ -89,6 +89,10 @@ final class SearchViewController: UIViewController {
         
     }
     
+    deinit {
+        print("SearchViewController 해제")
+    }
+    
 }
 
     //MARK: - Extension

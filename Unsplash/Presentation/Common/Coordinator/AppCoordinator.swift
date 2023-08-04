@@ -7,7 +7,12 @@
 
 import UIKit
 
-final class AppCoordinator: Coordinator {
+protocol AppCoordinatorProtocol: Coordinator {
+    func showLoginFlow()
+    func showTabBarFlow()
+}
+
+final class AppCoordinator: AppCoordinatorProtocol {
     
     weak var delegate: CoordinatorDelegate?
     var navigationController: UINavigationController
@@ -17,29 +22,28 @@ final class AppCoordinator: Coordinator {
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
         navigationController.setNavigationBarHidden(true, animated: false)
-//        UserDefaults.standard.set(false, forKey: "isLogedIn")
     }
     
     func start() {
-        if UserDefaults.standard.bool(forKey: "isLogedIn") == true {
-            showTabBarViewController()
+        if UserDefaults.standard.bool(forKey: "isLogedIn") {
+            showTabBarFlow()
         } else {
-            showLoginViewController()
+            showLoginFlow()
         }
     }
     
-    private func showTabBarViewController() {
-        let tabBarCoordinator = TabBarCoordinator(self.navigationController)
-        tabBarCoordinator.delegate = self
-        tabBarCoordinator.start()
-        childCoordinators.append(tabBarCoordinator)
-    }
-    
-    private func showLoginViewController() {
+    func showLoginFlow() {
         let loginCoordinator = LoginCoordinator(self.navigationController)
         loginCoordinator.delegate = self
         loginCoordinator.start()
         childCoordinators.append(loginCoordinator)
+    }
+    
+    func showTabBarFlow() {
+        let tabBarCoordinator = TabBarCoordinator(self.navigationController)
+        tabBarCoordinator.delegate = self
+        tabBarCoordinator.start()
+        childCoordinators.append(tabBarCoordinator)
     }
     
 }
@@ -47,14 +51,15 @@ final class AppCoordinator: Coordinator {
 extension AppCoordinator: CoordinatorDelegate {
     
     func didFinish(childCoordinator: Coordinator) {
-        self.childCoordinators = self.childCoordinators.filter { $0.type != childCoordinator.type }
-        self.navigationController.viewControllers.removeAll()
+        print("AppCoordinator didFinish")
+        childCoordinators = childCoordinators.filter { $0.type != childCoordinator.type }
+        navigationController.viewControllers.removeAll()
         
         switch childCoordinator.type {
         case .tabBar:
-            self.showTabBarViewController()
+            showLoginFlow()
         case .login:
-            self.showLoginViewController()
+            showTabBarFlow()
         default:
             break
         }

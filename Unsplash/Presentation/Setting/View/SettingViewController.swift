@@ -70,7 +70,9 @@ final class SettingViewController: UIViewController {
     }
     
     
-    
+    deinit {
+        print("SettingViewController 해제")
+    }
     
     
 }

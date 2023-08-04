@@ -10,6 +10,7 @@ import UIKit
 final class MyInfoCoordinator: Coordinator {
     
     weak var delegate: CoordinatorDelegate?
+    
     var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     var type: CoordinatorStyleCase = .myInfo
@@ -25,14 +26,14 @@ final class MyInfoCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func showLoginViewController() {
-        let loginCoordinator = LoginCoordinator(navigationController)
-        loginCoordinator.delegate = self
-        self.childCoordinators.append(loginCoordinator)
+    func showLoginFlow() {
         UserDefaults.standard.set(false, forKey: "isLogedIn")
-        loginCoordinator.start()
-//        finish()
-        didFinish(childCoordinator: self)
+        let coordinator = LoginCoordinator(self.navigationController)
+        coordinator.delegate = self
+        self.childCoordinators.append(coordinator)
+        coordinator.start()
+        self.finish()
+        print(childCoordinators, #function)
     }
     
     func showSettingViewController() {
@@ -42,19 +43,16 @@ final class MyInfoCoordinator: Coordinator {
         navigationController.pushViewController(settingViewController, animated: true)
     }
     
-    func finish() {
-        delegate?.didFinish(childCoordinator: self)
+    deinit {
+        print("MyInfo Coordinator 해제")
     }
-    
     
 }
 
 extension MyInfoCoordinator: CoordinatorDelegate {
     func didFinish(childCoordinator: Coordinator) {
-        self.childCoordinators = childCoordinators.filter { $0.type != childCoordinator.type }
-        if childCoordinator.type == .myInfo {
-            self.navigationController.viewControllers.removeAll()
-            self.delegate?.didFinish(childCoordinator: self)
-        }
+        print("MyInfoCoordinator", childCoordinators, childCoordinator)
+        childCoordinators = childCoordinators.filter { $0.type != childCoordinator.type }
+        navigationController.viewControllers.removeAll()
     }
 }

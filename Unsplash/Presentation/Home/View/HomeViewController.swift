@@ -212,6 +212,9 @@ final class HomeViewController: UIViewController {
         
     }
     
+    deinit {
+        print("HomeViewController 해제")
+    }
     
 }
 

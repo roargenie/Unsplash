@@ -42,39 +42,39 @@ final class LoginViewModel: ViewModelType {
         input.emailTextFiled
             .map { $0.isValidEmail() }
             .withUnretained(self)
-            .emit { vc, value in
-                vc.emailValid.accept(value)
+            .emit { vm, value in
+                vm.emailValid.accept(value)
             }
             .disposed(by: disposeBag)
         
         input.passwordTextField
             .map { $0.count > 8 }
             .withUnretained(self)
-            .emit { vc, value in
-                vc.passwordValid.accept(value)
+            .emit { vm, value in
+                vm.passwordValid.accept(value)
             }
             .disposed(by: disposeBag)
         
         Observable.combineLatest(emailValid, passwordValid)
             .map { $0 && $1 }
             .withUnretained(self)
-            .bind { vc, isValid in
-                vc.isValid.accept(isValid)
+            .bind { vm, isValid in
+                vm.isValid.accept(isValid)
             }
             .disposed(by: disposeBag)
         
         input.signUpButtonTapped
             .withUnretained(self)
-            .emit { vc, _ in
-                vc.coordinator?.showSignupViewController()
+            .emit { vm, _ in
+                vm.coordinator?.showSignupViewController()
             }
             .disposed(by: disposeBag)
         
         input.loginButtonTapped
             .withLatestFrom(isValid.asDriver())
             .withUnretained(self)
-            .emit { vc, value in
-                value ? vc.coordinator?.showTabBarViewController() : vc.makeToast.accept("Failed Login")
+            .emit { vm, value in
+                value ? vm.coordinator?.showTabBarFlow() : vm.makeToast.accept("Failed Login")
             }
             .disposed(by: disposeBag)
         
@@ -84,11 +84,5 @@ final class LoginViewModel: ViewModelType {
         
     }
     
-    
-    
-    
-    
-    
-    
-    
+     
 }

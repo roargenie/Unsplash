@@ -92,6 +92,10 @@ final class HomeViewModel: ViewModelType {
             }
         }
     }
+    
+    deinit {
+        print("HomeViewModel 해제")
+    }
 }
 
 

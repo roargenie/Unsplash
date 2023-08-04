@@ -119,7 +119,10 @@ final class ImageDetailViewController: UIViewController {
             .disposed(by: disposeBag)
         
     }
-
+    
+    deinit {
+        print("ImageDetailViewController 해제")
+    }
 }
 
     //MARK: - Extension

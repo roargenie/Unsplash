@@ -9,6 +9,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
+
 final class SettingViewModel: ViewModelType {
     
     private weak var coordinator: MyInfoCoordinator?
@@ -30,8 +31,8 @@ final class SettingViewModel: ViewModelType {
         
         input.logOutButtonTap
             .withUnretained(self)
-            .emit { vc, _ in
-                vc.coordinator?.showLoginViewController()
+            .emit { vm, _ in
+                vm.coordinator?.showLoginFlow()
             }
             .disposed(by: disposeBag)
         

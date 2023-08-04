@@ -87,6 +87,9 @@ final class MyInfoViewController: UIViewController {
         
     }
     
+    deinit {
+        print("MyInfoViewController 해제")
+    }
 }
 
 extension MyInfoViewController: UITableViewDelegate, UITableViewDataSource {
@@ -115,7 +118,6 @@ extension MyInfoViewController: UITableViewDelegate, UITableViewDataSource {
         
         return view
     }
-    
     
     
     

@@ -25,6 +25,7 @@ final class TabBarCoordinator: Coordinator {
         let pages: [TabBarPageCase] = TabBarPageCase.allCases
         let controllers: [UINavigationController] = pages.map { self.createTabNavigationController(of: $0) }
         self.configureTabBarController(with: controllers)
+        print(childCoordinators, "=========TabBarCoordinator")
     }
     
     func currentPage() -> TabBarPageCase? {
@@ -87,13 +88,19 @@ final class TabBarCoordinator: Coordinator {
         }
     }
     
+    deinit {
+        print("TabBar Coordinator 해제")
+    }
+    
 }
 
 extension TabBarCoordinator: CoordinatorDelegate {
-    
     func didFinish(childCoordinator: Coordinator) {
+        print("Tabbar Coordinator didFinish")
         self.childCoordinators = childCoordinators.filter { $0.type != childCoordinator.type }
-        if childCoordinator.type == .myInfo {
+        if childCoordinator.type == .home {
+            navigationController.viewControllers.removeAll()
+        } else if childCoordinator.type == .myInfo {
             self.navigationController.viewControllers.removeAll()
             self.delegate?.didFinish(childCoordinator: self)
         }

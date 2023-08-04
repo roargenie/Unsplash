@@ -25,7 +25,9 @@ final class SearchCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    
+    deinit {
+        print("SearchCoordinator 해제")
+    }
     
     
 }
